@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugolin BERGIER — Curriculum Vitae</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-navy: #1a2332;
+            --warm-gold: #c9a227;
+            --soft-gold: #e8d5a3;
+            --cream: #faf8f5;
+            --warm-gray: #6b6560;
+            --light-border: #e0dcd5;
+            --text-primary: #2c2825;
+            --text-secondary: #5a5550;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--cream);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .cv-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            background: var(--deep-navy);
+            color: #fff;
+            padding: 50px 35px;
+            position: relative;
+        }
+
+        .sidebar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--warm-gold) 0%, var(--soft-gold) 50%, var(--warm-gold) 100%);
+        }
+
+        .name-block {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .name-block h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .title-main {
+            font-size: 0.95rem;
+            color: var(--soft-gold);
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            margin-bottom: 12px;
+        }
+
+        .title-sub {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .contact-block {
+            margin-bottom: 40px;
+        }
+
+        .contact-block p {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 6px;
+            font-weight: 300;
+        }
+
+        .contact-block a {
+            color: var(--soft-gold);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-block a:hover {
+            color: #fff;
+        }
+
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+
+        .sidebar-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--warm-gold);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar-section ul {
+            list-style: none;
+        }
+
+        .sidebar-section li {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 8px;
+            padding-left: 14px;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .sidebar-section li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--warm-gold);
+            font-weight: bold;
+        }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .keyword {
+            background: rgba(255,255,255,0.08);
+            padding: 4px 12px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 50px 55px;
+            background: var(--cream);
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+
+        .section-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            letter-spacing: 0.05em;
+        }
+
+        .section-header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--light-border), transparent);
+        }
+
+        .research-profile {
+            background: #fff;
+            padding: 28px 30px;
+            border-left: 3px solid var(--warm-gold);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+        }
+
+        .research-profile p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 25px;
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+            font-weight: 500;
+            padding-top: 2px;
+        }
+
+        .timeline-content h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--deep-navy);
+            margin-bottom: 4px;
+        }
+
+        .timeline-content .institution {
+            font-size: 0.92rem;
+            color: var(--warm-gold);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .timeline-content ul {
+            margin-top: 10px;
+            padding-left: 18px;
+        }
+
+        .timeline-content li {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        /* Two Column Grid */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* Publications */
+        .publication {
+            background: #fff;
+            padding: 20px 24px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .publication:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .publication .year {
+            display: inline-block;
+            background: var(--deep-navy);
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 2px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .publication .title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .publication .journal {
+            font-size: 0.85rem;
+            color: var(--warm-gold);
+            font-style: italic;
+        }
+
+        /* Patents */
+        .patent-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .patent {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #2a3a52 100%);
+            color: #fff;
+            padding: 22px;
+            border-radius: 6px;
+        }
+
+        .patent .number {
+            font-size: 0.8rem;
+            color: var(--soft-gold);
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.02em;
+        }
+
+        .patent .title {
+            font-size: 0.9rem;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .patent .date {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Teaching Grid */
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .teaching-category {
+            background: #fff;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .teaching-category h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--deep-navy);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--warm-gold);
+        }
+
+        .teaching-category ul {
+            list-style: none;
+        }
+
+        .teaching-category li {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .teaching-category li:last-child {
+            border-bottom: none;
+        }
+
+        /* Conferences */
+        .conference-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .conference-item:last-child {
+            border-bottom: none;
+        }
+
+        .conference-year {
+            background: var(--soft-gold);
+            color: var(--deep-navy);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .conference-details {
+            flex: 1;
+        }
+
+        .conference-details .talk-title {
+            font-size: 0.92rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .conference-details .venue {
+            font-size: 0.82rem;
+            color: var(--warm-gray);
+        }
+
+        /* Affiliations */
+        .affiliation-item {
+            display: flex;
+            gap: 20px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .affiliation-item:last-child {
+            border-bottom: none;
+        }
+
+        .affiliation-dates {
+            font-size: 0.82rem;
+            color: var(--warm-gray);
+            font-weight: 500;
+            min-width: 100px;
+        }
+
+        .affiliation-details h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--deep-navy);
+            margin-bottom: 3px;
+        }
+
+        .affiliation-details p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        @media print {
+            .cv-container {
+                grid-template-columns: 280px 1fr;
+            }
+            
+            .sidebar {
+                padding: 30px 25px;
+            }
+            
+            .main-content {
+                padding: 30px 40px;
+            }
+            
+            .publication:hover,
+            .timeline-item:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                padding: 40px 30px;
+            }
+            
+            .sidebar::after {
+                display: none;
+            }
+            
+            .main-content {
+                padding: 40px 30px;
+            }
+            
+            .two-column,
+            .patent-grid,
+            .teaching-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="name-block">
+                <h1>Hugolin BERGIER</h1>
+                <p class="title-main">Associate Professor (Tenured)</p>
+                <p class="title-sub">Logic · Philosophy of Formal Sciences · Explainable Artificial Intelligence</p>
+            </div>
+
+            <div class="contact-block">
+                <p>32 rue Béranger</p>
+                <p>49100 Angers, France</p>
+                <p style="margin-top: 12px;">+33 7 49 12 09 41</p>
+                <p><a href="mailto:hbergier@regis.edu">hbergier@regis.edu</a></p>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Research Areas</h3>
+                <ul>
+                    <li>Formal & Intensional Logic</li>
+                    <li>Philosophy of Logic & Computer Science</li>
+                    <li>Foundations of Computation</li>
+                    <li>Formal Ontologies & Knowledge Representation</li>
+                    <li>Symbolic & Logic-based AI</li>
+                    <li>AI Ethics & Artificial Agency</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Keywords</h3>
+                <div class="keywords">
+                    <span class="keyword">λ-calculus</span>
+                    <span class="keyword">Combinatory Logic</span>
+                    <span class="keyword">Formal Semantics</span>
+                    <span class="keyword">Explainable AI</span>
+                    <span class="keyword">Haskell B. Curry</span>
+                    <span class="keyword">Jean Ladrière</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Associations</h3>
+                <ul>
+                    <li>Union Internationale des Guides et Scouts d'Europe (2000–2008; 2017–2021; 2025–present)</li>
+                    <li>Federation of North American Explorers (2017–2021)</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Research Profile -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Research Profile</h2>
+                </div>
+                <div class="research-profile">
+                    <p>My research lies at the intersection of <strong>formal logic</strong>, <strong>philosophy of the formal sciences</strong> (logic, mathematics, theoretical computer science), and <strong>logic-based artificial intelligence</strong>. I work primarily on intensional logic, formal semantics, and formal ontologies, examining their philosophical and epistemological implications for computation and AI. My approach combines theoretical and philosophical analysis of formal systems with applied formal research in program analysis, knowledge representation, and symbolic AI.</p>
+                </div>
+            </section>
+
+            <!-- Education & Positions in Two Columns -->
+            <div class="two-column">
+                <section class="section">
+                    <div class="section-header">
+                        <h2>Education</h2>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-date">2016</span>
+                        <div class="timeline-content">
+                            <h4>PhD Mathematics, CS & Humanities</h4>
+                            <p class="institution">Université Paris-Sorbonne</p>
+                            <p><em>Toward a Logic of Movement</em><br>Supervisor: Prof. Jean-Pierre Desclés</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-date">2012</span>
+                        <div class="timeline-content">
+                            <h4>Visiting Doctoral Student</h4>
+                            <p class="institution">University of Chicago</p>
+                            <p>Department of Philosophy</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-date">2006</span>
+                        <div class="timeline-content">
+                            <h4>M.A. Mathematics & Computer Science</h4>
+                            <p class="institution">Université Catholique de l'Ouest</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-date">2005</span>
+                        <div class="timeline-content">
+                            <h4>M.Phil. Comparative Politics</h4>
+                            <p class="institution">Sciences Po Paris</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="section-header">
+                        <h2>Academic Positions</h2>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-date">2019–present</span>
+                        <div class="timeline-content">
+                            <h4>Associate Professor (Tenured)</h4>
+                            <p class="institution">Regis University, Denver</p>
+                            <p>Computer Science · Program Director since 2023</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-date">2012–2017</span>
+                        <div class="timeline-content">
+                            <h4>Maître de conférences</h4>
+                            <p class="institution">Université Catholique de l'Ouest</p>
+                            <p>Angers, France</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-date">2009–2012</span>
+                        <div class="timeline-content">
+                            <h4>Visiting Scholar / TA</h4>
+                            <p class="institution">University of Chicago</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Research Positions -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Research Positions</h2>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-date">2017–present</span>
+                    <div class="timeline-content">
+                        <h4>Research Scientist</h4>
+                        <p class="institution">Phase Change Software, Golden, USA</p>
+                        <p>Logic-based AI for program understanding; formal ontologies and intensional semantic models; prototyping (Prolog, Haskell, Clojure); research publications and granted patents.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research Affiliations -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Research Affiliations</h2>
+                </div>
+                
+                <div class="affiliation-item">
+                    <span class="affiliation-dates">2025–present</span>
+                    <div class="affiliation-details">
+                        <h4>Institut Catholique de Paris</h4>
+                        <p>Affiliate Researcher — Team <em>Esprit, Cognition et Artificialisation de l'Intelligence</em></p>
+                    </div>
+                </div>
+
+                <div class="affiliation-item">
+                    <span class="affiliation-dates">2021–present</span>
+                    <div class="affiliation-details">
+                        <h4>Sorbonne Université — STIH</h4>
+                        <p>Associate Researcher — Computational Linguistics Group</p>
+                    </div>
+                </div>
+
+                <div class="affiliation-item">
+                    <span class="affiliation-dates">May–Jul 2022</span>
+                    <div class="affiliation-details">
+                        <h4>Sorbonne Center for Artificial Intelligence (SCAI)</h4>
+                        <p>Visiting Scholar</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publications -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Selected Publications</h2>
+                </div>
+                
+                <div class="publication">
+                    <span class="year">2025</span>
+                    <p class="title">Can Formal Logic Make Pure Chance Intelligible? Ladrière on the Eschatological Horizon of Reason</p>
+                    <p class="journal">Logica Universalis (Springer Nature)</p>
+                </div>
+
+                <div class="publication">
+                    <span class="year">2023</span>
+                    <p class="title">An Intensional Interpretation of Generic Statements</p>
+                    <p class="journal">Logica Universalis (Springer Nature)</p>
+                </div>
+
+                <div class="publication">
+                    <span class="year">2022</span>
+                    <p class="title">Bernanos, Heidegger and the Redemption of Technology</p>
+                    <p class="journal">International Journal of Humanities Social Sciences and Education</p>
+                </div>
+
+                <div class="publication">
+                    <span class="year">2020</span>
+                    <p class="title">How Combinatory Logic Can Limit Computing Complexity</p>
+                    <p class="journal">EPJ Web of Conferences</p>
+                </div>
+
+                <div class="publication">
+                    <span class="year">2018</span>
+                    <p class="title">Towards J.A.R.V.I.S. for Software Engineering: Lessons Learned in Implementing a Natural Language Chat Interface</p>
+                    <p class="journal">AAAI Workshops (with Pandita, Bucuvalas, Chakarov & Richards)</p>
+                </div>
+
+                <div class="publication">
+                    <span class="year">2011</span>
+                    <p class="title">The Logic of Action Applied to Intelligence</p>
+                    <p class="journal">Hermès Science — Traitement automatique des langues naturelles</p>
+                </div>
+            </section>
+
+            <!-- Patents -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Patents</h2>
+                </div>
+                
+                <div class="patent-grid">
+                    <div class="patent">
+                        <p class="number">US 11,157,250 B2</p>
+                        <p class="title">Inductive Equivalence in Machine-Based Instruction Editing</p>
+                        <p class="date">Granted Oct 26, 2021</p>
+                    </div>
+                    <div class="patent">
+                        <p class="number">US 11,720,334 B2</p>
+                        <p class="title">Continuation Patent</p>
+                        <p class="date">Granted Aug 8, 2023</p>
+                    </div>
+                    <div class="patent">
+                        <p class="number">EP17825321.7</p>
+                        <p class="title">Inductive Equivalence in Machine-Based Instruction Editing</p>
+                        <p class="date">Granted Apr 2025</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conferences -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Selected Talks & Conferences</h2>
+                </div>
+                
+                <div class="conference-item">
+                    <span class="conference-year">2025</span>
+                    <div class="conference-details">
+                        <p class="talk-title">AI as Mere Mimicry: Why Artificial Intelligence Lacks Ethical Agency?</p>
+                        <p class="venue">CEPE 2025, Rome</p>
+                    </div>
+                </div>
+
+                <div class="conference-item">
+                    <span class="conference-year">2025</span>
+                    <div class="conference-details">
+                        <p class="talk-title">Le formalisme comme horizon : de l'algèbre de Viète à la logique de Curry</p>
+                        <p class="venue">Centre François Viète, Nantes</p>
+                    </div>
+                </div>
+
+                <div class="conference-item">
+                    <span class="conference-year">2024</span>
+                    <div class="conference-details">
+                        <p class="talk-title">Can Formal Logic Make Pure Chance Intelligible?</p>
+                        <p class="venue">1st World Congress on Logic, Chance and Money, UNLV</p>
+                    </div>
+                </div>
+
+                <div class="conference-item">
+                    <span class="conference-year">2024</span>
+                    <div class="conference-details">
+                        <p class="talk-title">Ontologies as Formal Systems: the case of Records-in-Context</p>
+                        <p class="venue">InterPARES Symposium, Regis University</p>
+                    </div>
+                </div>
+
+                <div class="conference-item">
+                    <span class="conference-year">2023</span>
+                    <div class="conference-details">
+                        <p class="talk-title">An Intensional Interpretation of Generic Statements</p>
+                        <p class="venue">Logica Universalis Webinar, Paris</p>
+                    </div>
+                </div>
+
+                <div class="conference-item">
+                    <span class="conference-year">2022</span>
+                    <div class="conference-details">
+                        <p class="talk-title">Logic-based AI in archival ontologies</p>
+                        <p class="venue">SCAI-InterPARES Conference, Paris</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Teaching -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Teaching Experience</h2>
+                </div>
+                
+                <div class="teaching-grid">
+                    <div class="teaching-category">
+                        <h4>Logic & Theory</h4>
+                        <ul>
+                            <li>Computation Theory</li>
+                            <li>Formal Languages & Algorithms</li>
+                            <li>Principles of Programming Languages</li>
+                            <li>Introduction to Formal Logic</li>
+                        </ul>
+                    </div>
+
+                    <div class="teaching-category">
+                        <h4>Philosophy & Ethics</h4>
+                        <ul>
+                            <li>Philosophy of Science</li>
+                            <li>History & Philosophy of Science</li>
+                            <li>Computer Science & AI Ethics</li>
+                            <li>Introduction to Philosophy</li>
+                            <li>Seminar: <em>What Is Reality?</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="teaching-category">
+                        <h4>Applied Mathematics</h4>
+                        <ul>
+                            <li>Calculus I & II</li>
+                            <li>Linear Algebra</li>
+                            <li>Statistics</li>
+                            <li>Operations Research</li>
+                            <li>Multidimensional Data Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Service & Editorial -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Editorial & Academic Service</h2>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-date">2026</span>
+                    <div class="timeline-content">
+                        <h4>Co-Editor, Special Issue</h4>
+                        <p class="institution">Philosophy of Management (Springer)</p>
+                        <p><em>The AI Revolution: Perspectives from the Philosophy of Management</em></p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2020–present</span>
+                    <div class="timeline-content">
+                        <h4>Member, Academic Council</h4>
+                        <p class="institution">Regis University</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prior Experience -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Prior Professional Experience</h2>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-date">2007–2009</span>
+                    <div class="timeline-content">
+                        <h4>Management & Strategy Consultant</h4>
+                        <p class="institution">BearingPoint, Paris</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2005–2006</span>
+                    <div class="timeline-content">
+                        <h4>Research Scientist Intern</h4>
+                        <p class="institution">Thales Group / Université du Québec</p>
+                        <p>Computational Linguistics</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
