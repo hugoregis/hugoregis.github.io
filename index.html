@@ -302,6 +302,16 @@
             line-height: 1.4;
         }
 
+        .publication a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .publication a:hover {
+            color: var(--warm-gold);
+        }
+
         .publication .journal {
             font-size: 0.85rem;
             color: var(--warm-gold);
@@ -320,6 +330,18 @@
             color: #fff;
             padding: 22px;
             border-radius: 6px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .patent a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+
+        .patent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
 
         .patent .number {
@@ -693,37 +715,37 @@
                 
                 <div class="publication">
                     <span class="year">2025</span>
-                    <p class="title">Can Formal Logic Make Pure Chance Intelligible? Ladrière on the Eschatological Horizon of Reason</p>
+                    <p class="title"><a href="https://doi.org/10.1007/s11787-024-00363-4" target="_blank">Can Formal Logic Make Pure Chance Intelligible? Ladrière on the Eschatological Horizon of Reason</a></p>
                     <p class="journal">Logica Universalis (Springer Nature)</p>
                 </div>
 
                 <div class="publication">
                     <span class="year">2023</span>
-                    <p class="title">An Intensional Interpretation of Generic Statements</p>
+                    <p class="title"><a href="https://doi.org/10.1007/s11787-023-00333-3" target="_blank">An Intensional Interpretation of Generic Statements</a></p>
                     <p class="journal">Logica Universalis (Springer Nature)</p>
                 </div>
 
                 <div class="publication">
                     <span class="year">2022</span>
-                    <p class="title">Bernanos, Heidegger and the Redemption of Technology</p>
+                    <p class="title"><a href="https://scholar.google.com/scholar?q=Bernanos+Heidegger+Redemption+Technology+Bergier" target="_blank">Bernanos, Heidegger and the Redemption of Technology</a></p>
                     <p class="journal">International Journal of Humanities Social Sciences and Education</p>
                 </div>
 
                 <div class="publication">
                     <span class="year">2020</span>
-                    <p class="title">How Combinatory Logic Can Limit Computing Complexity</p>
+                    <p class="title"><a href="https://doi.org/10.1051/epjconf/202024300014" target="_blank">How Combinatory Logic Can Limit Computing Complexity</a></p>
                     <p class="journal">EPJ Web of Conferences</p>
                 </div>
 
                 <div class="publication">
                     <span class="year">2018</span>
-                    <p class="title">Towards J.A.R.V.I.S. for Software Engineering: Lessons Learned in Implementing a Natural Language Chat Interface</p>
+                    <p class="title"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/11481" target="_blank">Towards J.A.R.V.I.S. for Software Engineering: Lessons Learned in Implementing a Natural Language Chat Interface</a></p>
                     <p class="journal">AAAI Workshops (with Pandita, Bucuvalas, Chakarov & Richards)</p>
                 </div>
 
                 <div class="publication">
                     <span class="year">2011</span>
-                    <p class="title">The Logic of Action Applied to Intelligence</p>
+                    <p class="title"><a href="https://scholar.google.com/scholar?q=Logic+Action+Applied+Intelligence+Bergier" target="_blank">The Logic of Action Applied to Intelligence</a></p>
                     <p class="journal">Hermès Science — Traitement automatique des langues naturelles</p>
                 </div>
             </section>
@@ -736,19 +758,25 @@
                 
                 <div class="patent-grid">
                     <div class="patent">
-                        <p class="number">US 11,157,250 B2</p>
-                        <p class="title">Inductive Equivalence in Machine-Based Instruction Editing</p>
-                        <p class="date">Granted Oct 26, 2021</p>
+                        <a href="https://patents.google.com/patent/US11157250B2" target="_blank">
+                            <p class="number">US 11,157,250 B2</p>
+                            <p class="title">Inductive Equivalence in Machine-Based Instruction Editing</p>
+                            <p class="date">Granted Oct 26, 2021</p>
+                        </a>
                     </div>
                     <div class="patent">
-                        <p class="number">US 11,720,334 B2</p>
-                        <p class="title">Continuation Patent</p>
-                        <p class="date">Granted Aug 8, 2023</p>
+                        <a href="https://patents.google.com/patent/US11720334B2" target="_blank">
+                            <p class="number">US 11,720,334 B2</p>
+                            <p class="title">Continuation Patent</p>
+                            <p class="date">Granted Aug 8, 2023</p>
+                        </a>
                     </div>
                     <div class="patent">
-                        <p class="number">EP17825321.7</p>
-                        <p class="title">Inductive Equivalence in Machine-Based Instruction Editing</p>
-                        <p class="date">Granted Apr 2025</p>
+                        <a href="https://patents.google.com/patent/EP17825321" target="_blank">
+                            <p class="number">EP17825321.7</p>
+                            <p class="title">Inductive Equivalence in Machine-Based Instruction Editing</p>
+                            <p class="date">Granted Apr 2025</p>
+                        </a>
                     </div>
                 </div>
             </section>
