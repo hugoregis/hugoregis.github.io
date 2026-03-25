@@ -386,34 +386,40 @@
         }
 
         .team-card {
-            display: grid;
-            grid-template-columns: 160px 1fr;
-            gap: 36px;
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.08);
-            padding: 28px;
-            align-items: start;
+            padding: 28px 32px;
+        }
+
+        .team-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 20px;
         }
 
         .team-avatar {
-            aspect-ratio: 1;
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
             background: linear-gradient(135deg, var(--navy-mid) 0%, #3a4f6e 100%);
+            border: 1px solid rgba(201,162,39,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem;
-            font-weight: 300;
+            font-size: 1.2rem;
+            font-weight: 400;
             color: var(--soft-gold);
             letter-spacing: 0.05em;
         }
 
         .team-info h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 600;
             color: #fff;
-            margin-bottom: 6px;
+            margin-bottom: 3px;
             letter-spacing: 0.04em;
         }
 
@@ -428,7 +434,7 @@
         .team-info .team-subtitle {
             font-size: 0.85rem;
             color: rgba(255,255,255,0.5);
-            margin-bottom: 24px;
+            margin-bottom: 18px;
         }
 
         .team-info p {
@@ -723,10 +729,14 @@
             <h2 class="section-title section-title-light">Who We Are</h2>
             <div class="section-divider"></div>
             <div class="team-card">
-                <div class="team-avatar">HB</div>
+                <div class="team-header">
+                    <div class="team-avatar">HB</div>
+                    <div>
+                        <h3>Hugolin BERGIER</h3>
+                        <p class="team-title">Founder &amp; Principal Consultant</p>
+                    </div>
+                </div>
                 <div class="team-info">
-                    <h3>Hugolin BERGIER</h3>
-                    <p class="team-title">Founder &amp; Principal Consultant</p>
                     <p class="team-subtitle">Associate Professor · Research Scientist · Philosopher of Logic &amp; AI</p>
                     <p>Hugolin Bergier holds a PhD from Université Paris-Sorbonne and has held academic positions at Sciences Po Paris, the University of Chicago, and Regis University (Denver), where he is currently an Associate Professor of Computer Science and Program Director.</p>
                     <p>As Research Scientist at Phase Change Software, he has developed logic-based AI tools for program understanding, resulting in three granted patents (US, EP) and publications in venues including Logica Universalis, EPJ Web of Conferences, and AAAI. His philosophical work spans formal logic, philosophy of technology, and the ethics of artificial agency.</p>
