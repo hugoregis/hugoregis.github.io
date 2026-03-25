@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analogia Entis — Consulting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Jacques+Francois+Shadow&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --deep-navy: #1a2332;
@@ -21,6 +21,10 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html { scroll-behavior: smooth; }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Jacques Francois Shadow', serif;
+        }
 
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -177,7 +181,7 @@
 
         .hero-description {
             max-width: 620px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: rgba(255,255,255,0.75);
             line-height: 1.8;
             font-weight: 300;
@@ -230,7 +234,7 @@
         }
 
         .section-label {
-            font-size: 0.72rem;
+            font-size: 0.85rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--warm-gold);
@@ -271,14 +275,14 @@
         }
 
         .about-text p {
-            font-size: 1rem;
+            font-size: 1.08rem;
             color: var(--text-secondary);
             line-height: 1.85;
             margin-bottom: 20px;
         }
 
         .about-text p:first-of-type {
-            font-size: 1.08rem;
+            font-size: 1.15rem;
             color: var(--text-primary);
         }
 
@@ -389,29 +393,31 @@
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.08);
             padding: 24px 28px;
-            overflow: hidden;
+            position: relative;
         }
 
         .team-header {
-            float: right;
+            position: absolute;
+            top: 24px;
+            right: 28px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
-            margin: 0 0 12px 24px;
+            gap: 10px;
             text-align: center;
+            width: 110px;
         }
 
         .team-avatar {
-            width: 72px;
-            height: 72px;
+            width: 64px;
+            height: 64px;
             background: linear-gradient(135deg, var(--navy-mid) 0%, #3a4f6e 100%);
             border: 1px solid rgba(201,162,39,0.4);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 400;
             color: var(--soft-gold);
             letter-spacing: 0.05em;
@@ -425,36 +431,34 @@
         }
 
         .team-info h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 0.82rem;
             color: #f5d44a;
             margin: 0;
-            letter-spacing: 0.04em;
-            line-height: 1.2;
-            white-space: nowrap;
+            line-height: 1.25;
+            white-space: normal;
         }
 
         .team-info .team-title {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #f5d44a;
-            font-weight: 500;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 400;
             margin: 0;
-            letter-spacing: 0.03em;
-            white-space: nowrap;
+            line-height: 1.3;
         }
 
         .team-info .team-subtitle {
-            font-size: 0.75rem;
+            font-size: 0.68rem;
             color: rgba(255,255,255,0.4);
+            font-family: 'Times New Roman', Times, serif;
             margin: 4px 0 0 0;
             line-height: 1.4;
         }
 
         .team-info p {
-            font-size: 0.88rem;
+            font-size: 1rem;
             color: rgba(255,255,255,0.72);
-            line-height: 1.65;
+            line-height: 1.7;
             margin-bottom: 10px;
         }
 
@@ -743,7 +747,7 @@
             <h2 class="section-title section-title-light">Who We Are</h2>
             <div class="section-divider"></div>
             <div class="team-card">
-                <div class="team-info">
+                <div class="team-info" style="padding-right: 130px;">
                 <div class="team-header">
                     <div class="team-avatar">HB</div>
                     <div class="team-identity">
@@ -763,7 +767,6 @@
                         <span class="team-keyword">AI Ethics</span>
                     </div>
                     <a href="cv.html" class="btn-cv">View Full Curriculum Vitae →</a>
-                    <div style="clear:both;"></div>
                 </div>
             </div>
         </div>
