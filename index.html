@@ -24,8 +24,20 @@
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Jacques Francois Shadow', serif;
-            -webkit-text-stroke: 0.2px currentColor;
+            -webkit-text-stroke: 0.8px var(--cream);
             font-weight: 400;
+        }
+
+        /* On dark navy backgrounds, stroke with navy to thin the letters */
+        #home h1, #home h2, #home h3,
+        #team h1, #team h2, #team h3, #team h4 {
+            -webkit-text-stroke: 0.8px var(--deep-navy);
+        }
+
+        /* On white backgrounds */
+        #about h1, #about h2, #about h3, #about h4,
+        #contact h1, #contact h2, #contact h3 {
+            -webkit-text-stroke: 0.8px #fff;
         }
 
         body {
@@ -324,7 +336,7 @@
 
         .service-card {
             background: #fff;
-            padding: 36px 32px;
+            padding: 22px 24px;
             border-left: 3px solid var(--warm-gold);
             border-top: 1px solid var(--light-border);
             border-right: 1px solid var(--light-border);
@@ -342,27 +354,27 @@
 
         .service-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+            font-size: 1.6rem;
             font-weight: 300;
             color: var(--light-border);
             line-height: 1;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
         }
 
         .service-card h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: 600;
             color: var(--deep-navy);
-            margin-bottom: 14px;
+            margin-bottom: 10px;
             -webkit-text-stroke: 0;
             filter: none;
         }
 
         .service-card p {
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             color: var(--text-secondary);
-            line-height: 1.75;
+            line-height: 1.65;
         }
 
         .service-tags {
@@ -397,7 +409,7 @@
         .team-card {
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.08);
-            padding: 24px 28px;
+            padding: 20px 24px;
             position: relative;
         }
 
@@ -463,17 +475,17 @@
         }
 
         .team-info p {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: rgba(255,255,255,0.72);
-            line-height: 1.7;
-            margin-bottom: 10px;
+            line-height: 1.6;
+            margin-bottom: 8px;
         }
 
         .team-keywords {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
         }
 
         .team-keyword {
@@ -754,7 +766,7 @@
             <h2 class="section-title section-title-light">Who We Are</h2>
             <div class="section-divider"></div>
             <div class="team-card">
-                <div class="team-info" style="padding-left: 175px;">
+                <div class="team-info" style="padding-left: 170px; min-height: 200px;">
                 <div class="team-header">
                     <div class="team-avatar">HB</div>
                     <div class="team-identity">
