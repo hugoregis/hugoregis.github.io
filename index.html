@@ -24,9 +24,8 @@
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Jacques Francois Shadow', serif;
-            -webkit-text-stroke: 0.4px currentColor;
+            -webkit-text-stroke: 0.2px currentColor;
             font-weight: 400;
-            filter: opacity(0.82);
         }
 
         body {
@@ -326,16 +325,19 @@
         .service-card {
             background: #fff;
             padding: 36px 32px;
-            border-top: 3px solid transparent;
+            border-left: 3px solid var(--warm-gold);
+            border-top: 1px solid var(--light-border);
+            border-right: 1px solid var(--light-border);
+            border-bottom: 1px solid var(--light-border);
             box-shadow: 0 2px 16px rgba(0,0,0,0.04);
-            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
             position: relative;
         }
 
         .service-card:hover {
-            border-top-color: var(--warm-gold);
             transform: translateY(-3px);
             box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            background: #fffdf9;
         }
 
         .service-number {
@@ -353,6 +355,8 @@
             font-weight: 600;
             color: var(--deep-navy);
             margin-bottom: 14px;
+            -webkit-text-stroke: 0;
+            filter: none;
         }
 
         .service-card p {
