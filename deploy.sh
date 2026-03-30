@@ -16,5 +16,11 @@ git add -- ':!notes.md' .
 # Only commit if there's something staged
 if ! git diff --cached --quiet; then
     git commit -m "Update website $(date '+%Y-%m-%d %H:%M')"
-    git push origin main
+    # Use token from .env if available (not committed to repo)
+    if [ -f "$WEBSITE_DIR/.env" ]; then
+        source "$WEBSITE_DIR/.env"
+        git push "https://${GH_USER}:${GH_TOKEN}@github.com/${GH_USER}/hugoregis.github.io.git" main
+    else
+        git push origin main
+    fi
 fi
