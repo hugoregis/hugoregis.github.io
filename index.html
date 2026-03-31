@@ -27,7 +27,7 @@
         }
 
         body {
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
             background: var(--cream);
             color: var(--text-primary);
             line-height: 1.6;
@@ -400,30 +400,27 @@
         }
 
         .team-header {
-            position: absolute;
-            top: 24px;
-            left: 28px;
+            flex-shrink: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 12px;
             text-align: center;
-            width: 150px;
+            width: 160px;
         }
 
         .team-avatar {
-            width: 86px;
-            height: 86px;
-            background: linear-gradient(135deg, var(--navy-mid) 0%, #3a4f6e 100%);
-            border: 1px solid rgba(201,162,39,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.7rem;
-            font-weight: 400;
-            color: var(--soft-gold);
-            letter-spacing: 0.05em;
+            width: 130px;
+            height: 130px;
+            border: 2px solid rgba(201,162,39,0.4);
+            overflow: hidden;
+        }
+
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .team-identity {
@@ -613,8 +610,9 @@
             .about-grid,
             .contact-grid { grid-template-columns: 1fr; gap: 40px; }
             .services-grid { grid-template-columns: 1fr; }
-            .team-card { grid-template-columns: 1fr; gap: 32px; }
-            .team-avatar { max-width: 160px; }
+            .team-card { flex-direction: column !important; align-items: center !important; }
+            .team-header { width: auto; }
+            .team-avatar { width: 110px; height: 110px; }
             footer { padding: 28px 24px; }
             .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
         }
@@ -698,12 +696,12 @@
 
                 <div class="service-card">
                     <div class="service-number">01</div>
-                    <h3>Logic-Based &amp; Explainable AI</h3>
-                    <p>We design and evaluate formally grounded AI architectures — symbolic reasoning systems, logic-based program analysis, and hybrid neuro-symbolic approaches — with a focus on interpretability, correctness, and verifiability.</p>
+                    <h3>Symbolic AI &amp; Formal Verification</h3>
+                    <p>We design and evaluate formally grounded AI architectures: symbolic reasoning systems, logic-based program analysis, and hybrid symbolic-LLM approaches. We also provide formal verification consulting using theorem provers such as Lean 4, with a focus on correctness, verifiability, and mathematical rigor.</p>
                     <div class="service-tags">
                         <span class="service-tag">Symbolic AI</span>
                         <span class="service-tag">Formal Verification</span>
-                        <span class="service-tag">XAI</span>
+                        <span class="service-tag">Lean 4</span>
                         <span class="service-tag">Combinatory Logic</span>
                     </div>
                 </div>
@@ -751,23 +749,24 @@
             <p class="section-label">The Practice</p>
             <h2 class="section-title section-title-light">Who We Are</h2>
             <div class="section-divider"></div>
-            <div class="team-card">
-                <div class="team-info" style="padding-left: 170px; min-height: 200px;">
+            <div class="team-card" style="display: flex; gap: 32px; align-items: flex-start;">
                 <div class="team-header">
-                    <div class="team-avatar">HB</div>
+                    <div class="team-avatar"><img src="headshot.jpg" alt="Hugolin Bergier"></div>
                     <div class="team-identity">
                         <h3>Hugolin BERGIER</h3>
                         <p class="team-title">Founder &amp; Principal Consultant</p>
                         <p class="team-subtitle">Associate Professor · Research Scientist<br>Philosopher of Logic &amp; AI</p>
                     </div>
                 </div>
-                    <p>Hugolin Bergier holds a PhD from Université Paris-Sorbonne and has held academic positions at Sciences Po Paris, the University of Chicago, and Regis University (Denver), where he is currently an Associate Professor of Computer Science and Program Director.</p>
-                    <p>As Research Scientist at Phase Change Software, he has developed logic-based AI tools for program understanding, resulting in three granted patents (US, EP) and publications in venues including Logica Universalis, EPJ Web of Conferences, and AAAI. His philosophical work spans formal logic, philosophy of technology, and the ethics of artificial agency.</p>
+                <div class="team-info">
+                    <p>Hugolin Bergier holds a PhD from Université Paris-Sorbonne and a DEA from Sciences Po Paris. He has held positions at the University of Chicago and Regis University (Denver), where he is currently Associate Professor of Computer Science and Program Director. He also teaches at UCO Angers and holds affiliate research appointments at the Institut Catholique de Paris and Université Paris-Sorbonne.</p>
+                    <p>As Research Scientist at Phase Change Software, he has developed logic-based AI tools for program understanding, resulting in three granted patents (US, Europe) and publications in computer science, logic, and philosophy. His philosophical work spans formal logic, philosophy and foundations of Computer Science, and the ethics of artificial agency.</p>
                     <div class="team-keywords">
                         <span class="team-keyword">Formal Logic</span>
                         <span class="team-keyword">λ-calculus</span>
+                        <span class="team-keyword">Symbolic AI</span>
+                        <span class="team-keyword">Formal Verification</span>
                         <span class="team-keyword">Philosophy of AI</span>
-                        <span class="team-keyword">Explainable AI</span>
                         <span class="team-keyword">Ontology</span>
                         <span class="team-keyword">AI Ethics</span>
                     </div>
@@ -807,7 +806,7 @@
                 </div>
                 <div class="contact-note">
                     <h4>Areas Open for Engagement</h4>
-                    <p>Current areas of consulting availability include: AI governance and ethics advisory, formal ontology development, logic-based AI system design and review, philosophy of technology analysis, expert testimony and academic co-authorship, and curriculum development for graduate and executive education programs.</p>
+                    <p>Current areas of consulting availability include: formal verification and theorem proving (Lean 4), symbolic AI system design and review, formal ontology development, AI governance and ethics advisory, philosophy of technology analysis, expert testimony and academic co-authorship, and curriculum development for graduate and executive education programs.</p>
                 </div>
             </div>
         </div>
