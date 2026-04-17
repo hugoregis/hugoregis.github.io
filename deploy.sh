@@ -15,7 +15,16 @@ git add -- ':!notes.md' .
 
 # Only commit if there's something staged
 if ! git diff --cached --quiet; then
-    git commit -m "Update website $(date '+%Y-%m-%d %H:%M')"
+    # Fallback identity if git config is missing (e.g. sandboxed env with no user.* set).
+    # Uses -c flags so the repo/global git config is NOT modified.
+    COMMIT_ARGS=()
+    if ! git config --get user.email > /dev/null 2>&1; then
+        COMMIT_ARGS+=(-c "user.email=hbergier@regis.edu")
+    fi
+    if ! git config --get user.name > /dev/null 2>&1; then
+        COMMIT_ARGS+=(-c "user.name=Hugolin Bergier")
+    fi
+    git "${COMMIT_ARGS[@]}" commit -m "Update website $(date '+%Y-%m-%d %H:%M')"
     # Use token from .env if available (not committed to repo)
     if [ -f "$WEBSITE_DIR/.env" ]; then
         source "$WEBSITE_DIR/.env"
