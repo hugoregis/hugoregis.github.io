@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Le Coin Prière</title>
+<meta name="description" content="Le coin prière de la famille : le cierge allumé, Notre-Dame de Pontmain et les saints patrons.">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0d131c">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   One design pixel = --u. Every dimension below is expressed in
+   design pixels, so the whole oratory scales as a single unit and
+   is guaranteed to fit the viewport without ever scrolling.
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  --dw:1400; --dh:1062;
+  --u:min(100vw / 1400, 100vh / 1062);
+
+  --night:#0d131c;
+  --night-2:#141d2a;
+  --gold:#c9a227;
+  --gold-soft:#e8d5a3;
+  --gold-dim:rgba(201,162,39,.42);
+  --cream:#f2ebdd;
+  --muted:rgba(238,230,212,.62);
+  --faint:rgba(238,230,212,.34);
+
+  --glow-a:.66;      /* candle-light strength, overridden by .lum-* */
+  --glow-r:30vmax;
+}
+@supports (height:100svh){ :root{ --u:min(100vw / 1400, 100svh / 1062); } }
+
+@media (orientation:portrait){
+  :root{ --dw:700; --dh:1760; --u:min(100vw / 700, 100vh / 1760); }
+  @supports (height:100svh){ :root{ --u:min(100vw / 700, 100svh / 1760); } }
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html,body{height:100%;overflow:hidden}
+body{
+  font-family:'Source Sans 3',system-ui,sans-serif;
+  background:var(--night);
+  color:var(--cream);
+  -webkit-font-smoothing:antialiased;
+  display:flex;align-items:center;justify-content:center;
+  background:
+    radial-gradient(ellipse 44% 30% at 50% 66%, rgba(126,78,22,.30) 0%, transparent 70%),
+    radial-gradient(ellipse 120% 90% at 50% 26%, var(--night-2) 0%, var(--night) 72%);
+}
+
+/* candle-light thrown across the icons */
+.lightfield{
+  position:fixed;inset:0;pointer-events:none;z-index:3;
+  mix-blend-mode:soft-light;
+  background:radial-gradient(circle var(--glow-r) at 50% 64%,
+    rgba(255,198,110,var(--glow-a)) 0%, rgba(255,160,62,calc(var(--glow-a) * .38)) 38%, transparent 68%);
+  animation:breathe 5.5s ease-in-out infinite;
+}
+.vignette{
+  position:fixed;inset:0;pointer-events:none;z-index:4;
+  background:radial-gradient(ellipse 86% 76% at 50% 56%, transparent 44%, rgba(3,6,11,.74) 100%);
+}
+@keyframes breathe{0%,100%{opacity:.78}28%{opacity:1}57%{opacity:.66}79%{opacity:.92}}
+
+.lum-veilleuse{--glow-a:.34;--glow-r:22vmax}
+.lum-cierge   {--glow-a:.66;--glow-r:30vmax}
+.lum-vigile   {--glow-a:1;  --glow-r:42vmax}
+
+/* ─────────────  STAGE  ───────────── */
+.stage{
+  position:relative;z-index:5;
+  width:calc(var(--u) * var(--dw));
+  height:calc(var(--u) * var(--dh));
+  display:flex;flex-wrap:wrap;
+  justify-content:center;align-items:flex-start;align-content:center;
+  column-gap:calc(var(--u) * 13);
+  row-gap:calc(var(--u) * 12);
+  --iw:132;
+}
+@media (orientation:portrait){ .stage{--iw:144;column-gap:calc(var(--u) * 12)} }
+
+.brk{flex:0 0 100%;width:100%;height:0}
+.brk3,.brk4{display:none}
+
+figure.icon{margin:0;text-align:center;width:calc(var(--u) * var(--iw))}
+figure.icon img{
+  display:block;width:100%;height:auto;
+  filter:drop-shadow(0 calc(var(--u)*10) calc(var(--u)*20) rgba(0,0,0,.62));
+  transition:transform .4s cubic-bezier(.2,.7,.3,1),filter .4s;
+}
+figure.icon:hover img{transform:translateY(calc(var(--u)*-6)) scale(1.02);
+  filter:drop-shadow(0 calc(var(--u)*16) calc(var(--u)*28) rgba(0,0,0,.7)) brightness(1.07)}
+
+figure.crown{--iw:150}
+@media (orientation:portrait){ figure.crown{--iw:160} }
+
+figcaption{margin-top:calc(var(--u) * 8)}
+.latin{
+  display:block;font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:calc(var(--u) * 13.5);line-height:1.12;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);
+}
+.vernac{
+  display:block;font-size:calc(var(--u) * 10.5);line-height:1.28;
+  font-weight:300;color:var(--muted);margin-top:calc(var(--u) * 3);
+}
+.feast{
+  display:block;font-size:calc(var(--u) * 9);line-height:1.2;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint);
+  margin-top:calc(var(--u) * 3);
+}
+figure.crown .latin{font-size:calc(var(--u) * 14.5)}
+
+/* caption settings */
+.leg-latin  .vernac,.leg-latin .feast{display:none}
+.leg-aucune figcaption{display:none}
+.fetes-off  .feast{display:none}
+
+/* the saint whose feast falls today */
+.today img{
+  filter:drop-shadow(0 0 calc(var(--u)*13) rgba(255,196,104,.85))
+         drop-shadow(0 calc(var(--u)*10) calc(var(--u)*20) rgba(0,0,0,.6));
+}
+.today .latin{color:#ffd97a}
+.today .feast::after{content:' — aujourd’hui';color:var(--gold)}
+.fetes-off .today .feast::after{content:''}
+
+/* parents, set apart at the outer edges */
+figure.f-elisabeth{margin-right:calc(var(--u) * 40);margin-top:calc(var(--u) * 24)}
+figure.f-hugolin  {margin-left: calc(var(--u) * 40);margin-top:calc(var(--u) * 24)}
+figure.parent .latin{color:var(--gold)}
+figure.parent .vernac{font-style:italic}
+
+/* ─────────────  CANDLE  ───────────── */
+.hearth{display:flex;flex-direction:column;align-items:center;
+  margin:0 calc(var(--u) * 10)}
+.candle-svg{height:calc(var(--u) * 248);width:auto;display:block;overflow:visible}
+@media (orientation:portrait){ .candle-svg{height:calc(var(--u) * 240)} }
+
+.f-glow {animation:glow 4.3s ease-in-out infinite;transform-origin:80px 150px}
+.f-outer{animation:sway  2.9s ease-in-out infinite alternate;transform-origin:80px 148px}
+.f-mid  {animation:sway2 1.9s ease-in-out infinite alternate;transform-origin:80px 146px}
+.f-core {animation:sway3 1.27s ease-in-out infinite alternate;transform-origin:80px 144px}
+.f-all  {animation:flicker 3.7s steps(1,end) infinite}
+
+@keyframes sway {0%{transform:rotate(-2.6deg) scale(1,.965) translateX(-1.4px)}100%{transform:rotate(2.4deg) scale(1.035,1.05) translateX(1.4px)}}
+@keyframes sway2{0%{transform:rotate(3.1deg) scaleY(.94) translateX(1.1px)}100%{transform:rotate(-2.8deg) scaleY(1.07) translateX(-1.2px)}}
+@keyframes sway3{0%{transform:rotate(-3.6deg) scale(.9,1.06)}100%{transform:rotate(3.4deg) scale(1.07,.93)}}
+@keyframes glow {0%,100%{opacity:.55;transform:scale(1)}33%{opacity:.78;transform:scale(1.09)}66%{opacity:.46;transform:scale(.95)}}
+@keyframes flicker{0%,100%{opacity:1}41%{opacity:1}43%{opacity:.82}45%{opacity:1}72%{opacity:1}73.5%{opacity:.88}75%{opacity:1}}
+
+/* the flame leans away from the breath, then gutters out */
+.f-wind{
+  transform-origin:80px 150px;
+  transform:rotate(calc(var(--wind,0) * 24deg))
+            scale(calc(1 - var(--wind,0) * .2), calc(1 - var(--wind,0) * .34));
+  transition:transform .09s linear;
+}
+.f-wind,.f-glow{transition:opacity .4s ease-out}
+/* the halo animates its own opacity, and an animation outranks a normal
+   declaration — so it has to be switched off before it will go dark */
+.out .f-wind{opacity:0}
+.out .f-glow{opacity:0;animation:none}
+.smoke{opacity:0;transition:opacity .3s .2s}
+.out .smoke{opacity:1}
+.smoke > *{transform-box:fill-box;transform-origin:50% 100%}
+.out .smoke .w1{animation:rise 2.9s ease-out .05s infinite}
+.out .smoke .w2{animation:rise 3.4s ease-out .55s infinite}
+.out .smoke .w3{animation:rise 2.6s ease-out 1.1s infinite}
+@keyframes rise{
+  0%  {transform:translateY(0) translateX(0) scale(.5);opacity:.5}
+  60% {opacity:.22}
+  100%{transform:translateY(-78px) translateX(9px) scale(1.9);opacity:0}
+}
+/* when the candle is out the whole room darkens */
+body.eteint .lightfield{opacity:.06;animation:none}
+body.eteint figure.icon img{filter:drop-shadow(0 calc(var(--u)*10) calc(var(--u)*20) rgba(0,0,0,.62)) brightness(.62) saturate(.75)}
+
+/* ── microphone ── */
+.blow{
+  display:flex;flex-direction:column;align-items:center;gap:calc(var(--u) * 5);
+  margin-top:calc(var(--u) * 9);
+}
+.blow button{
+  font-family:'Source Sans 3',sans-serif;cursor:pointer;white-space:nowrap;
+  font-size:clamp(9px,calc(var(--u) * 10),13px);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold-soft);background:rgba(201,162,39,.10);
+  border:1px solid rgba(201,162,39,.42);border-radius:999px;
+  padding:.5em 1.15em;transition:all .22s;
+}
+.blow button:hover{background:rgba(201,162,39,.22);border-color:var(--gold)}
+.meter{
+  width:calc(var(--u) * 92);height:calc(var(--u) * 4);border-radius:999px;
+  background:rgba(255,255,255,.10);overflow:hidden;display:none;
+}
+.blow.live .meter{display:block}
+.meter i{display:block;height:100%;width:calc(var(--wind,0) * 100%);
+  background:linear-gradient(90deg,#ffd489,#ff9f36);transition:width .09s linear}
+.micro-off .blow{display:none}
+
+/* ── liturgical band ── */
+.liturgie{
+  flex:0 0 100%;text-align:center;order:75;
+  padding:calc(var(--u) * 14) calc(var(--u) * 20) 0;
+  margin-top:calc(var(--u) * 6);position:relative;
+}
+.liturgie::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:calc(var(--u) * 250);height:1px;
+  background:linear-gradient(to right,transparent,var(--gold-dim) 30%,var(--gold) 50%,var(--gold-dim) 70%,transparent);
+}
+.lit-jour{
+  font-size:calc(var(--u) * 15);letter-spacing:.11em;color:var(--gold-soft);
+  text-transform:uppercase;font-weight:500;line-height:1.3;
+}
+.lit-dot{
+  display:inline-block;width:calc(var(--u) * 7);height:calc(var(--u) * 7);
+  border-radius:50%;margin-right:calc(var(--u) * 7);vertical-align:baseline;
+  border:1px solid rgba(255,255,255,.35);
+}
+.c-vert{background:#4f8a52}.c-blanc{background:#f2ebdd}.c-rouge{background:#a8322d}
+.c-violet{background:#6b4a86}.c-rose{background:#d59ab4}.c-noir{background:#20242b}
+.lit-fete{
+  font-size:calc(var(--u) * 13);color:rgba(238,230,212,.82);font-weight:300;
+  margin-top:calc(var(--u) * 3);line-height:1.3;
+}
+.lit-ev{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:calc(var(--u) * 17);color:rgba(246,240,228,.97);line-height:1.34;
+  margin-top:calc(var(--u) * 8);
+}
+.lit-ev + .lit-ev{margin-top:calc(var(--u) * 4)}
+.lit-ev cite{font-style:normal;font-family:'Source Sans 3',sans-serif;
+  font-size:calc(var(--u) * 10.5);letter-spacing:.12em;color:rgba(238,230,212,.5);
+  text-transform:uppercase;margin-left:calc(var(--u) * 9)}
+.lit-ev b{font-weight:500;font-style:normal;font-family:'Source Sans 3',sans-serif;
+  font-size:calc(var(--u) * 9.5);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);display:block;margin-bottom:calc(var(--u) * 3)}
+.lit-dot{width:calc(var(--u) * 9);height:calc(var(--u) * 9)}
+.liturgie:empty,.lit-off .liturgie{display:none}
+@media (orientation:landscape){
+  .liturgie.two{display:flex;flex-wrap:wrap;justify-content:center;
+    align-items:flex-start;column-gap:calc(var(--u) * 46)}
+  .liturgie.two .lit-jour,.liturgie.two .lit-fete{flex:0 0 100%}
+  .liturgie.two .lit-ev{flex:0 1 calc(var(--u) * 430);margin-top:calc(var(--u) * 7)}
+}
+
+/* a calm flame: lit, but still */
+.flamme-calme .f-outer,.flamme-calme .f-mid,.flamme-calme .f-core,.flamme-calme .f-all{animation:none}
+.flamme-calme .f-glow{animation:glow 9s ease-in-out infinite}
+
+/* ─────────────  FLOW ORDER  ─────────────
+   Landscape:  Pontmain / Élisabeth · 4 patrons · Hugolin / 2 · cierge · 2
+   Portrait:   Pontmain / 4 / cierge / 4 / les 2 parents            */
+.crown{order:10}   .brk1{order:15}
+.f-elisabeth{order:20}
+.f-jean{order:30} .f-genevieve{order:31} .f-beatrix{order:32} .f-esther{order:33}
+.f-hugolin{order:40} .brk2{order:45}
+.f-anselme{order:50} .f-madeleine{order:51} .hearth{order:55}
+.f-basile{order:60} .f-cassien{order:61}
+.brk5{order:70}
+
+@media (orientation:portrait){
+  .brk2{order:35}
+  .hearth{order:40}
+  .brk3{order:45;display:block}
+  .f-anselme{order:50} .f-madeleine{order:51} .f-basile{order:52} .f-cassien{order:53}
+  .brk4{order:55;display:block}
+  .f-elisabeth{order:60;margin:0} .f-hugolin{order:61;margin:0}
+}
+
+/* ─────────────  CIRCLE LAYOUT  ───────────── */
+.stage.cercle{display:block}
+.stage.cercle .brk{display:none}
+.stage.cercle figure.icon{
+  position:absolute;width:calc(var(--u) * 104);margin:0;
+  left:calc(50% + var(--u) * var(--x));
+  top: calc(50% + var(--u) * var(--y));
+  transform:translate(-50%,-50%);
+}
+@media (orientation:portrait){ .stage.cercle figure.icon{width:calc(var(--u) * 116)} }
+.stage.cercle figure.crown{
+  width:calc(var(--u) * 146);left:50%;top:calc(var(--u) * 8);transform:translateX(-50%);
+}
+@media (orientation:portrait){ .stage.cercle figure.crown{width:calc(var(--u) * 156)} }
+.stage.cercle .hearth{
+  position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);margin:0;
+}
+.stage.cercle .vernac,.stage.cercle .feast{display:none}
+/* the ring takes its children out of flow, so the band must be placed too,
+   or it collapses to the top of the stage and sits across the candle */
+.stage.cercle .liturgie{
+  position:absolute;left:0;right:0;bottom:calc(var(--u) * 6);margin-top:0;
+}
+
+/* ─────────────  CONTROLS  ───────────── */
+.controls{
+  position:fixed;top:calc(var(--u) * 16);right:calc(var(--u) * 20);z-index:9;
+  display:flex;gap:calc(var(--u) * 8);align-items:center;
+  transition:opacity .6s;
+}
+.controls.dim{opacity:0;pointer-events:none}
+.controls button,.controls a{
+  font-family:'Source Sans 3',sans-serif;
+  font-size:clamp(10px,calc(var(--u) * 10.5),13px);
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);background:rgba(13,19,28,.55);
+  border:1px solid rgba(201,162,39,.28);border-radius:2px;
+  padding:.62em 1.1em;cursor:pointer;text-decoration:none;
+  backdrop-filter:blur(6px);transition:color .25s,border-color .25s,background .25s;
+}
+.controls button:hover,.controls a:hover{
+  color:var(--gold-soft);border-color:var(--gold);background:rgba(201,162,39,.13);
+}
+body.preview .controls{display:none}
+
+@media (prefers-reduced-motion:reduce){
+  .lightfield,.f-glow,.f-outer,.f-mid,.f-core,.f-all{animation:none}
+  figure.icon img{transition:none}
+}
+</style>
+</head>
+<body class="lum-cierge leg-complet">
+
+<div class="lightfield" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<nav class="controls" aria-label="Commandes">
+  <button type="button" id="fs" title="Basculer en plein écran">Plein écran</button>
+  <a href="coin-priere.html">Réglages</a>
+</nav>
+
+<main class="stage" id="stage" aria-label="Notre-Dame de Pontmain et les saints patrons de la famille">
+
+  <figure class="icon crown f-pontmain" data-slug="pontmain">
+    <img id="nd-img" src="oratoire/pontmain.webp" width="550" height="800" decoding="async"
+         alt="Notre-Dame de Pontmain, en robe bleue semée d'étoiles d'or, tenant la croix.">
+    <figcaption>
+      <span class="latin">Beata Maria de Pontmain</span>
+      <span class="vernac">Notre-Dame de Pontmain</span>
+      <span class="feast">17 janvier</span>
+    </figcaption>
+  </figure>
+
+  <i class="brk brk1"></i>
+
+  <figure class="icon parent f-elisabeth" data-slug="elisabeth">
+    <img src="oratoire/elisabeth.webp" width="550" height="800" loading="lazy" decoding="async"
+         alt="Icône de la Conception de Jean-Baptiste : sainte Élisabeth et le prophète Zacharie.">
+    <figcaption>
+      <span class="latin">S. Elisabeth</span>
+      <span class="vernac">Sainte Élisabeth, mère de Jean-Baptiste</span>
+      <span class="feast">5 novembre</span>
+    </figcaption>
+  </figure>
+
+  <figure class="icon f-jean" data-slug="jean">
+    <img src="oratoire/jean.webp" width="550" height="800" loading="lazy" decoding="async"
+         alt="Icône crétoise de saint Jean le Théologien, 1449-1450.">
+    <figcaption>
+      <span class="latin">S. Ioannes Apostolus</span>
+      <span class="vernac">Saint Jean, apôtre et évangéliste</span>
+      <span class="feast">27 décembre</span>
+    </figcaption>
+  </figure>
+
+  <figure class="icon f-genevieve" data-slug="genevieve">
+    <img src="oratoire/genevieve.webp" width="550" height="800" loading="lazy" decoding="async"
+         alt="Sainte Geneviève tenant son cierge allumé, Lucas Cranach l'Ancien, 1506.">
+    <figcaption>
+      <span class="latin">S. Genovefa</span>
+      <span class="vernac">Sainte Geneviève de Paris</span>
+      <span class="feast">3 janvier</span>
+    </figcaption>
+  </figure>
+
+  <figure class="icon f-beatrix" data-slug="beatrix">
+    <img src="oratoire/beatrix.webp" width="550" height="800" loading="lazy" decoding="async"
+         alt="Fresque de la catacombe de Generosa à Rome, où sainte Béatrix fut ensevelie.">
+    <figcaption>
+      <span class="latin">S. Beatrix</span>
+      <span class="vernac">Sainte Béatrix, martyre à Rome</span>
+      <span class="feast">29 juillet</span>
+    </figcaption>
+  </figure>
+
+  <figure class="icon f-esther" data-slug="esther">
+    <img src="oratoire/esther.webp" width="550" height="800" loading="lazy" decoding="async"
+         alt="Médaillon d'icône russe de la sainte et juste Esther, couronnée.">
+    <figcaption>
+      <span class="latin">S. Esther Regina</span>
+      <span class="vernac">Sainte Esther, reine</span>
+      <span class="feast">Saints Ancêtres</span>
+    </figcaption>
+  </figure>
+
+  <figure class="icon parent f-hugolin" data-slug="hugolin">
+    <img src="oratoire/hugolin.webp" width="550" height="800" loading="lazy" decoding="async"
+         alt="Le martyre des sept franciscains de Ceuta, parmi lesquels saint Hugolin.">
+    <figcaption>
+      <span class="latin">S. Hugolinus</span>
+      <span class="vernac">Saint Hugolin, martyr de Ceuta</span>
+      <span class="feast">10 octobre</span>
+    </figcaption>
+  </figure>
+
+  <i class="brk brk2"></i>
+
+  <figure class="icon f-anselme" data-slug="anselme">
+    <img src="oratoire/anselme.webp" width="550" height="800" loading="lazy" decoding="async"
+         alt="Enluminure du XIIe siècle représentant saint Anselme de Cantorbéry.">
+    <figcaption>
+      <span class="latin">S. Anselmus</span>
+      <span class="vernac">Saint Anselme de Cantorbéry</span>
+      <span class="feast">21 avril</span>
+    </figcaption>
+  </figure>
+
+  <figure class="icon f-madeleine" data-slug="madeleine">
+    <img src="oratoire/madeleine.webp" width="550" height="800" loading="lazy" decoding="async"
+         alt="Icône byzantine du XVIe siècle de sainte Marie-Madeleine.">
+    <figcaption>
+      <span class="latin">S. Maria Magdalena</span>
+      <span class="vernac">Sainte Marie-Madeleine</span>
+      <span class="feast">22 juillet</span>
+    </figcaption>
+  </figure>
+
+  <div class="hearth">
+    <svg class="candle-svg" viewBox="0 0 160 380" role="img"
+         aria-label="Un cierge allumé, dont la flamme vacille.">
+      <defs>
+        <linearGradient id="wax" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#8d7c60"/><stop offset="16%" stop-color="#e6dcc4"/>
+          <stop offset="44%" stop-color="#f7f1e2"/><stop offset="76%" stop-color="#ddd0b4"/>
+          <stop offset="100%" stop-color="#8a7859"/>
+        </linearGradient>
+        <linearGradient id="pool" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#cbbd9d"/><stop offset="50%" stop-color="#fbf6ea"/>
+          <stop offset="100%" stop-color="#c3b494"/>
+        </linearGradient>
+        <radialGradient id="gGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffcf7a" stop-opacity=".95"/>
+          <stop offset="38%" stop-color="#ff9f36" stop-opacity=".42"/>
+          <stop offset="100%" stop-color="#f26a00" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="gOuter" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffd489"/><stop offset="42%" stop-color="#ffa62e"/>
+          <stop offset="100%" stop-color="#f4720c"/>
+        </linearGradient>
+        <linearGradient id="gCore" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#fffdf3"/><stop offset="55%" stop-color="#ffe9a6"/>
+          <stop offset="100%" stop-color="#ffc352"/>
+        </linearGradient>
+        <filter id="blurBig" x="-90%" y="-90%" width="280%" height="280%"><feGaussianBlur stdDeviation="17"/></filter>
+        <filter id="blurSoft" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="3.4"/></filter>
+        <filter id="blurTiny" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="1.1"/></filter>
+      </defs>
+
+      <g class="f-glow">
+        <ellipse cx="80" cy="126" rx="86" ry="104" fill="url(#gGlow)" filter="url(#blurBig)"/>
+      </g>
+      <g class="f-wind"><g class="f-all">
+        <g class="f-outer">
+          <path d="M80 34 C 62 74, 48 96, 48 118 a 32 32 0 0 0 64 0 C 112 96, 98 74, 80 34 Z"
+                fill="url(#gOuter)" filter="url(#blurSoft)" opacity=".92"/>
+        </g>
+        <g class="f-mid">
+          <path d="M80 66 C 69 92, 61 106, 61 120 a 19 19 0 0 0 38 0 C 99 106, 91 92, 80 66 Z"
+                fill="#ffcf6b" filter="url(#blurTiny)" opacity=".95"/>
+        </g>
+        <g class="f-core">
+          <path d="M80 92 C 74 108, 70 116, 70 125 a 10 10 0 0 0 20 0 C 90 116, 86 108, 80 92 Z"
+                fill="url(#gCore)"/>
+        </g>
+        <ellipse cx="80" cy="136" rx="9.5" ry="7" fill="#7fb2ff" opacity=".42" filter="url(#blurTiny)"/>
+      </g></g>
+
+      <path d="M80 148 C 79 142, 81 139, 80.5 134" stroke="#3a2c1c" stroke-width="2.6"
+            stroke-linecap="round" fill="none"/>
+      <g class="smoke" aria-hidden="true">
+        <ellipse class="w1" cx="79" cy="126" rx="6"   ry="8"   fill="#cfc9be"/>
+        <ellipse class="w2" cx="82" cy="124" rx="4.5" ry="6.5" fill="#c2bcb1"/>
+        <ellipse class="w3" cx="77" cy="122" rx="5"   ry="7"   fill="#d6d0c6"/>
+      </g>
+      <ellipse cx="80" cy="366" rx="54" ry="10" fill="#05080d" opacity=".55" filter="url(#blurSoft)"/>
+      <path d="M52 156 L52 354 a 10 10 0 0 0 10 10 L98 364 a 10 10 0 0 0 10 -10 L108 156 Z" fill="url(#wax)"/>
+      <path d="M56 160 C 51 178, 55 194, 52.5 210 C 50.5 224, 57 232, 58 216 C 59 198, 60 176, 58 160 Z"
+            fill="#f4eedf" opacity=".62"/>
+      <path d="M101 168 C 105 186, 100 200, 103 214 C 105 226, 99 230, 98.5 216 C 98 200, 98 180, 99 168 Z"
+            fill="#f4eedf" opacity=".42"/>
+      <ellipse cx="80" cy="156" rx="28" ry="9" fill="url(#pool)"/>
+      <ellipse cx="80" cy="157.5" rx="14" ry="4.2" fill="#b9a884" opacity=".55"/>
+    </svg>
+    <div class="blow" id="blow">
+      <button type="button" id="blow-btn">Souffler la bougie</button>
+      <div class="meter" aria-hidden="true"><i id="meter-bar"></i></div>
+    </div>
+  </div>
+
+  <figure class="icon f-basile" data-slug="basile">
+    <img src="oratoire/basile.webp" width="550" height="800" loading="lazy" decoding="async"
+         alt="Icône russe de saint Basile le Grand, en vêtements épiscopaux.">
+    <figcaption>
+      <span class="latin">S. Basilius Magnus</span>
+      <span class="vernac">Saint Basile le Grand</span>
+      <span class="feast">2 janvier</span>
+    </figcaption>
+  </figure>
+
+  <figure class="icon f-cassien" data-slug="cassien">
+    <img src="oratoire/cassien.webp" width="550" height="800" loading="lazy" decoding="async"
+         alt="Icône russe de saint Jean Cassien le Romain, moine, tenant un rouleau.">
+    <figcaption>
+      <span class="latin">S. Ioannes Cassianus</span>
+      <span class="vernac">Saint Jean Cassien</span>
+      <span class="feast">23 juillet</span>
+    </figcaption>
+  </figure>
+
+  <i class="brk brk3"></i>
+  <i class="brk brk4"></i>
+  <i class="brk brk5"></i>
+
+  <section class="liturgie" id="liturgie" aria-live="polite"></section>
+</main>
+
+<script src="oratoire/app.js"></script>
+<script>
+(function(){
+  'use strict';
+  var CP = window.CoinPriere;
+  var s = CP.load();
+  var body = document.body, stage = document.getElementById('stage');
+  var params = new URLSearchParams(location.search);
+  var preview = params.get('preview') === '1';
+  if (preview) body.classList.add('preview');
+
+  /* ── apply settings ── */
+  body.className = (preview ? 'preview ' : '') +
+    'lum-' + s.lumiere + ' leg-' + s.legendes +
+    (s.fetes ? ' fetes-on' : ' fetes-off') +
+    ' flamme-' + s.flamme;
+
+  /* Notre-Dame: the Cotellerie window if its file has been added,
+     otherwise fall back silently to the public-domain statue. */
+  var nd = document.getElementById('nd-img');
+  if (s.nd === 'cotellerie') {
+    nd.addEventListener('error', function once(){
+      nd.removeEventListener('error', once);
+      nd.src = 'oratoire/pontmain.webp';
+    });
+    nd.src = 'oratoire/pontmain-cotellerie.webp';
+  }
+
+  /* which saints are present */
+  CP.SAINTS.forEach(function(slug){
+    var el = stage.querySelector('[data-slug="' + slug + '"]');
+    if (el) el.style.display = s.saints.indexOf(slug) === -1 ? 'none' : '';
+  });
+
+  /* feast of the day */
+  if (s.fetes) {
+    stage.querySelectorAll('[data-slug]').forEach(function(el){
+      if (CP.feastToday(el.dataset.slug)) el.classList.add('today');
+    });
+  }
+
+  /* ── circle layout ──
+     Spacing by equal arc length, not by equal angle: on an ellipse the two
+     are quite different, and equal angles bunch the icons up at the sides. */
+  function arcPoints(RX, RY, a0, a1, n){
+    var N = 1200, pts = [], cum = [0], prev = null, i, t, r, p;
+    for (i = 0; i <= N; i++){
+      t = a0 + (a1 - a0) * i / N;
+      r = t * Math.PI / 180;
+      p = [RX * Math.cos(r), RY * Math.sin(r)];
+      pts.push(p);
+      if (prev) cum.push(cum[cum.length - 1] + Math.hypot(p[0] - prev[0], p[1] - prev[1]));
+      prev = p;
+    }
+    var total = cum[N], out = [], k = 0;
+    for (var j = 0; j < n; j++){
+      var target = n === 1 ? total / 2 : total * j / (n - 1);
+      while (k < N && cum[k] < target) k++;
+      out.push(pts[k]);
+    }
+    return out;
+  }
+
+  function placeCircle(){
+    var portrait = window.matchMedia('(orientation:portrait)').matches;
+    var RX = portrait ? 246 : 520,
+        RY = portrait ? 462 : 292,
+        CY = portrait ? 0   : 10;
+    var icons = Array.prototype.filter.call(
+      stage.querySelectorAll('figure.icon:not(.crown)'),
+      function(el){ return el.style.display !== 'none'; });
+    /* seat the parents together at the foot of the ring, the children around them */
+    var kids    = icons.filter(function(el){ return !el.classList.contains('parent'); });
+    var parents = icons.filter(function(el){ return  el.classList.contains('parent'); });
+    var half = Math.ceil(kids.length / 2);
+    icons = kids.slice(0, half).concat(parents, kids.slice(half));
+    /* leave a gap at the top for Notre-Dame, and run clockwise from there */
+    var pts = arcPoints(RX, RY, -46, 226, icons.length);
+    icons.forEach(function(el, i){
+      el.style.setProperty('--x', pts[i][0].toFixed(1));
+      el.style.setProperty('--y', (pts[i][1] + CY).toFixed(1));
+    });
+  }
+  if (s.disposition === 'cercle') {
+    stage.classList.add('cercle');
+    placeCircle();
+    window.addEventListener('resize', placeCircle);
+    window.addEventListener('orientationchange', placeCircle);
+  }
+
+  /* ── fullscreen ── */
+  var btn = document.getElementById('fs');
+  function isFs(){ return document.fullscreenElement || document.webkitFullscreenElement; }
+  function label(){ btn.textContent = isFs() ? 'Quitter' : 'Plein écran'; }
+  function toggle(){
+    var d = document.documentElement, p;
+    /* Safari's webkit- variants return undefined, so guard before .catch */
+    if (isFs()) { p = (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+    else        { p = (d.requestFullscreen || d.webkitRequestFullscreen).call(d); }
+    if (p && typeof p.catch === 'function') p.catch(function(){});
+  }
+  if (!(document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen)) {
+    btn.style.display = 'none';
+  }
+  btn.addEventListener('click', toggle);
+  document.addEventListener('fullscreenchange', label);
+  document.addEventListener('webkitfullscreenchange', label);
+  if (s.pleinecran && !preview) {
+    /* browsers require a gesture, so arm it on the first interaction */
+    var arm = function(){
+      document.removeEventListener('pointerdown', arm);
+      document.removeEventListener('keydown', arm);
+      toggle();
+    };
+    document.addEventListener('pointerdown', arm);
+    document.addEventListener('keydown', arm);
+  }
+
+  /* ── the day's liturgy, from AELF ── */
+  var litEl = document.getElementById('liturgie');
+  if (!s.liturgie) { body.classList.add('lit-off'); }
+  else {
+    var COLOURS = ['vert','blanc','rouge','violet','rose','noir'];
+    var wantToday    = s.evangile !== 'demain';
+    var wantTomorrow = s.evangile === 'demain' || s.evangile === 'deux';
+
+    var jobs = [CP.liturgie(CP.ymd(0))];
+    if (wantTomorrow) jobs.push(CP.liturgie(CP.ymd(1)));
+
+    Promise.all(jobs.map(function(p){ return p.catch(function(){ return null; }); }))
+      .then(function(res){
+        var today = res[0], tomorrow = wantTomorrow ? res[1] : null;
+        if (!today && !tomorrow) {                     /* AELF unreachable */
+          var d = new Date(), local = '';
+          try {
+            local = d.toLocaleDateString('fr-FR',
+              { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+          } catch (e) { local = d.toDateString(); }
+          litEl.innerHTML = '<p class="lit-jour">' + esc(local) + '</p>' +
+            '<p class="lit-fete">Liturgie du jour momentanément indisponible</p>';
+          return;
+        }
+        var html = '';
+        if (today) {
+          var dot = COLOURS.indexOf(today.couleur) !== -1
+            ? '<span class="lit-dot c-' + today.couleur + '"></span>' : '';
+          html += '<p class="lit-jour">' + dot + esc(today.ligne) + '</p>';
+          if (today.fete) html += '<p class="lit-fete">' + esc(today.fete) + '</p>';
+        }
+        var both = wantToday && wantTomorrow;
+        if (wantToday && today && today.evangile && today.evangile.titre) {
+          html += gospel(today.evangile, both ? 'Évangile du jour' : '');
+        }
+        if (wantTomorrow && tomorrow && tomorrow.evangile && tomorrow.evangile.titre) {
+          html += gospel(tomorrow.evangile, both ? 'Évangile de demain'
+                                                 : 'Évangile de demain');
+        }
+        litEl.innerHTML = html;
+        if (both) litEl.classList.add('two');
+      });
+  }
+  function esc(t){
+    return String(t == null ? '' : t)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function gospel(ev, label){
+    return '<p class="lit-ev">' + (label ? '<b>' + esc(label) + '</b>' : '') +
+           esc(ev.titre) + (ev.ref ? '<cite>' + esc(ev.ref) + '</cite>' : '') + '</p>';
+  }
+
+  /* ── blowing the candle out ──
+     Audio is analysed in the browser and never leaves it: nothing is
+     recorded, stored or sent anywhere. A breath is broadband noise with
+     most of its energy low down, which is what separates it from a
+     child simply shouting at the screen. */
+  if (!s.micro || preview) body.classList.add('micro-off');
+  else {
+    /* Thresholds by chosen sensitivity: loudness gate, spectral tilt, frames held.
+       Measured tilt (average linear power per bin, 60–350 Hz over 900–4000 Hz):
+       a blow lands between 50 and 800, speech at 0.19, shouting at 0.07 — so the
+       tilt gate does the discriminating and the loudness gate only rules out
+       silence (quiet room noise sits near 0.003 rms). Fixed thresholds on
+       purpose: adapting them to a "noise floor" measured while the child is
+       already blowing is what made this hard to trigger before. */
+    var SENS = {
+      faible:  { rms: 0.040, tilt: 2.0, hold: 4 },
+      normale: { rms: 0.016, tilt: 1.3, hold: 2 },
+      elevee:  { rms: 0.008, tilt: 0.8, hold: 1 }
+    };
+    var sens = SENS[s.sensibilite] || SENS.normale;
+
+    var blow = document.getElementById('blow'),
+        blowBtn = document.getElementById('blow-btn'),
+        meterBar = document.getElementById('meter-bar'),
+        hearth = document.querySelector('.hearth'),
+        audioCtx, analyser, stream, rafId, timeBuf, freqDb, binHz,
+        wind = 0, hot = 0, out = false,
+        calib = 0, thresh = sens.rms;
+
+    function relight(){
+      out = false; hot = 0;
+      body.classList.remove('eteint');
+      hearth.classList.remove('out');
+      blowBtn.textContent = listening() ? 'Souffle !' : 'Souffler la bougie';
+    }
+    function snuff(){
+      out = true; hot = 0; wind = 0;
+      body.classList.add('eteint');
+      hearth.classList.add('out');
+      blowBtn.textContent = 'Rallumer le cierge';
+      setWind(0);
+      meterBar.style.width = '0%';
+    }
+    function setWind(v){
+      document.documentElement.style.setProperty('--wind', v.toFixed(3));
+    }
+    function listening(){ return !!stream; }
+
+    /* Average LINEAR power per bin across a band. getByteFrequencyData is
+       decibel-mapped, so summing its bytes does not measure energy at all;
+       we convert from dB ourselves and average, so that bands of different
+       widths stay comparable. */
+    function bandPower(f0, f1){
+      var i0 = Math.max(1, Math.floor(f0 / binHz)),
+          i1 = Math.min(freqDb.length - 1, Math.ceil(f1 / binHz));
+      var sum = 0, n = 0, db;
+      for (var i = i0; i <= i1; i++){
+        db = freqDb[i];
+        if (isFinite(db) && db > -200){ sum += Math.pow(10, db / 10); n++; }
+      }
+      return n ? sum / n : 0;
+    }
+
+    function tick(){
+      rafId = requestAnimationFrame(tick);
+      analyser.getFloatTimeDomainData(timeBuf);
+      var sum = 0, i;
+      for (i = 0; i < timeBuf.length; i++) sum += timeBuf[i] * timeBuf[i];
+      var rms = Math.sqrt(sum / timeBuf.length);
+
+      analyser.getFloatFrequencyData(freqDb);
+      /* a breath is low-heavy; speech and shouting carry the 1–4 kHz band */
+      var tilt = bandPower(60, 350) / (bandPower(900, 4000) + 1e-12);
+
+      /* brief warm-up so the analyser's first frames don't count */
+      if (calib < 6){ calib++; return; }
+
+      /* the flame leans in proportion, and the meter fills as the
+         threshold is approached, so the effect is visible before it goes out */
+      var level = Math.min(1, rms / thresh);
+      wind += (level - wind) * (level > wind ? 0.6 : 0.12);
+      if (!out) setWind(Math.min(1, wind));
+      meterBar.style.width = (Math.min(1, wind) * 100).toFixed(1) + '%';
+
+      var blowing = rms > thresh && tilt > sens.tilt;
+      hot = blowing ? hot + 1 : 0;
+      if (!out && hot >= sens.hold) snuff();
+    }
+
+    function start(){
+      navigator.mediaDevices.getUserMedia({ audio: {
+        echoCancellation: false, noiseSuppression: false, autoGainControl: false
+      }}).then(function(st){
+        stream = st;
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 2048;
+        analyser.smoothingTimeConstant = 0.25;
+        audioCtx.createMediaStreamSource(st).connect(analyser);
+        /* buffers allocated once, not per frame */
+        timeBuf = new Float32Array(analyser.fftSize);
+        freqDb  = new Float32Array(analyser.frequencyBinCount);
+        binHz   = audioCtx.sampleRate / analyser.fftSize;
+        blow.classList.add('live');
+        blowBtn.textContent = 'Souffle !';
+        tick();
+      }).catch(function(){
+        blowBtn.textContent = 'Micro refusé';
+        setTimeout(function(){ blowBtn.textContent = 'Souffler la bougie'; }, 2600);
+      });
+    }
+
+    blowBtn.addEventListener('click', function(){
+      if (out) { relight(); return; }
+      if (!listening()) start();
+    });
+    /* tapping the candle itself relights it too */
+    hearth.addEventListener('click', function(e){
+      if (out && e.target !== blowBtn) relight();
+    });
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      body.classList.add('micro-off');
+    }
+  }
+
+  /* ── let the controls fade out of the way ── */
+  var controls = document.querySelector('.controls'), timer;
+  function wake(){
+    controls.classList.remove('dim');
+    clearTimeout(timer);
+    timer = setTimeout(function(){ controls.classList.add('dim'); }, 3200);
+  }
+  ['pointermove','pointerdown','keydown','touchstart'].forEach(function(ev){
+    document.addEventListener(ev, wake, {passive:true});
+  });
+  wake();
+})();
+</script>
+</body>
+</html>
