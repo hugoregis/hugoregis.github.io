@@ -3,38 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analogia Entis — Consulting</title>
-    <meta name="description" content="Analogia Entis is a logic and AI consulting firm offering formal verification, AI code analysis, and philosophical expertise in artificial intelligence and formal reasoning.">
+    <title>Hugolin Bergier · Logic-based AI for code · Analogia Entis</title>
+    <meta name="description" content="Hugolin Bergier, research scientist in logic-based AI for program understanding: formal ontologies of program semantics, reasoning-based derivations, and Lean 4 verification. Available for research roles and, through Analogia Entis, for consulting.">
     <meta name="author" content="Hugolin Bergier">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://analogia-entis.com/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://analogia-entis.com/">
-    <meta property="og:title" content="Analogia Entis — Consulting">
-    <meta property="og:description" content="Analogia Entis is a logic and AI consulting firm offering formal verification, AI code analysis, and philosophical expertise in artificial intelligence and formal reasoning.">
+    <meta property="og:title" content="Hugolin Bergier · Logic-based AI for code">
+    <meta property="og:description" content="Formal ontologies of program semantics, reasoning-based derivations, and Lean 4 verification. Research roles and consulting through Analogia Entis.">
     <!-- Google Search Console verification: replace content value below once you have your code -->
     <!-- <meta name="google-site-verification" content="PASTE_YOUR_CODE_HERE"> -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Analogia Entis",
-      "url": "https://analogia-entis.com/",
-      "logo": "https://analogia-entis.com/logo.svg",
-      "description": "Logic and AI consulting firm offering formal verification, AI code analysis, and philosophical expertise in artificial intelligence and formal reasoning.",
-      "email": "contact@analogia-entis.com",
-      "founder": {
-        "@type": "Person",
-        "name": "Hugolin Bergier",
-        "url": "https://analogia-entis.com/cv.html"
-      },
-      "knowsAbout": [
-        "Formal Verification",
-        "Symbolic Artificial Intelligence",
-        "Formal Logic",
-        "AI Code Analysis",
-        "Philosophy of Artificial Intelligence"
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://analogia-entis.com/#hugolin",
+          "name": "Hugolin Bergier",
+          "url": "https://analogia-entis.com/",
+          "image": "https://analogia-entis.com/headshot.jpeg",
+          "jobTitle": "Research Scientist, Logic-Based AI and Formal Ontologies",
+          "worksFor": { "@type": "Organization", "name": "Phase Change Software" },
+          "alumniOf": { "@type": "CollegeOrUniversity", "name": "Université Paris-Sorbonne" },
+          "sameAs": [
+            "https://orcid.org/0000-0001-8528-2657",
+            "https://analogia-entis.com/cv.html"
+          ],
+          "knowsAbout": [
+            "Knowledge Representation",
+            "Formal Ontologies",
+            "Program Analysis",
+            "Automated Reasoning",
+            "Formal Verification",
+            "Lean 4",
+            "Neurosymbolic AI",
+            "Formal Logic"
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "Analogia Entis",
+          "url": "https://analogia-entis.com/",
+          "logo": "https://analogia-entis.com/logo.svg",
+          "email": "contact@analogia-entis.com",
+          "description": "Independent consulting in formal ontologies, program-understanding architectures, and formal verification in Lean 4."
+        }
       ]
     }
     </script>
@@ -67,6 +83,8 @@
             line-height: 1.6;
         }
 
+        section { scroll-margin-top: 64px; }
+
         /* ─── NAVBAR ─── */
         nav {
             background: var(--deep-navy);
@@ -98,9 +116,7 @@
             gap: 12px;
         }
 
-        .nav-logo-mark {
-            flex-shrink: 0;
-        }
+        .nav-logo-mark { flex-shrink: 0; }
 
         .nav-logo span {
             display: block;
@@ -130,10 +146,6 @@
 
         .nav-links a:hover { color: var(--warm-gold); }
 
-        .nav-links a.active {
-            color: var(--warm-gold);
-        }
-
         .nav-links .nav-cv {
             color: var(--cream);
             border: 1px solid rgba(201,162,39,0.5);
@@ -151,9 +163,6 @@
         /* ─── HERO ─── */
         #home {
             background: var(--deep-navy);
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
             position: relative;
             overflow: hidden;
         }
@@ -167,7 +176,6 @@
                 radial-gradient(ellipse 40% 60% at 20% 30%, rgba(201,162,39,0.04) 0%, transparent 60%);
         }
 
-        /* Subtle geometric line decoration */
         #home::after {
             content: '';
             position: absolute;
@@ -182,9 +190,13 @@
         .hero-inner {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 50px;
+            padding: 72px 50px 56px;
             position: relative;
             z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 200px;
+            gap: 56px;
+            align-items: center;
         }
 
         .hero-label {
@@ -192,45 +204,65 @@
             letter-spacing: 0.28em;
             text-transform: uppercase;
             color: var(--warm-gold);
-            margin-bottom: 28px;
+            margin-bottom: 22px;
             font-weight: 500;
         }
 
         .hero-title {
-            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-size: clamp(2.5rem, 5vw, 4.4rem);
             font-weight: 300;
             color: #fff;
-            line-height: 1.1;
-            letter-spacing: 0.04em;
-            margin-bottom: 12px;
+            line-height: 1.08;
+            letter-spacing: 0.03em;
+            margin-bottom: 14px;
         }
 
-        .hero-title em {
-            font-style: italic;
-            color: var(--soft-gold);
-        }
-
-        .hero-tagline {
+        .hero-role {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.55);
+            font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+            color: var(--soft-gold);
             font-style: italic;
-            margin-bottom: 36px;
-            letter-spacing: 0.02em;
+            margin-bottom: 28px;
+            line-height: 1.35;
         }
 
         .hero-description {
-            max-width: 620px;
+            max-width: 680px;
             font-size: 1.1rem;
-            color: rgba(255,255,255,0.75);
-            line-height: 1.8;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.75;
             font-weight: 300;
-            margin-bottom: 48px;
+            margin-bottom: 36px;
         }
 
+        .hero-availability {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            margin: -18px 0 32px;
+            line-height: 1.6;
+        }
+
+        .hero-availability a { white-space: nowrap; color: var(--soft-gold); text-decoration: none; border-bottom: 1px solid rgba(201,162,39,0.4); }
+
         .hero-cta {
-            display: inline-flex;
+            display: flex;
+            flex-wrap: wrap;
             gap: 16px;
+        }
+
+        .hero-portrait {
+            width: 200px;
+            height: 200px;
+            border: 2px solid rgba(201,162,39,0.45);
+            overflow: hidden;
+            justify-self: end;
+        }
+
+        .hero-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .btn-primary {
@@ -266,6 +298,37 @@
             color: var(--warm-gold);
         }
 
+        /* ─── PROOF STRIP ─── */
+        .proof-strip {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            z-index: 1;
+        }
+
+        .proof-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 28px 50px 36px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .proof-figure {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--warm-gold);
+            line-height: 1.1;
+        }
+
+        .proof-caption {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.5;
+            margin-top: 6px;
+        }
+
         /* ─── SECTION COMMONS ─── */
         .section-wrap {
             max-width: 1200px;
@@ -290,9 +353,7 @@
             letter-spacing: 0.03em;
         }
 
-        .section-title-light {
-            color: #fff;
-        }
+        .section-title-light { color: #fff; }
 
         .section-divider {
             width: 48px;
@@ -301,114 +362,61 @@
             margin-bottom: 40px;
         }
 
-        /* ─── ABOUT ─── */
-        #about {
-            background: #fff;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        .about-text p {
-            font-size: 1.08rem;
+        .section-intro {
+            max-width: 760px;
+            font-size: 1.05rem;
             color: var(--text-secondary);
-            line-height: 1.85;
-            margin-bottom: 20px;
+            line-height: 1.8;
+            margin: -16px 0 40px;
         }
 
-        .about-text p:first-of-type {
-            font-size: 1.15rem;
-            color: var(--text-primary);
-        }
+        /* ─── WORK ─── */
+        #work { background: #fff; }
 
-        .about-pillars {
+        .work-list {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 0;
         }
 
-        .pillar {
-            border-left: 3px solid var(--warm-gold);
-            padding-left: 22px;
-        }
-
-        .pillar h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--deep-navy);
-            margin-bottom: 6px;
-        }
-
-        .pillar p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        /* ─── SERVICES ─── */
-        #services {
-            background: var(--cream);
-        }
-
-        .services-grid {
+        .work-item {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 28px;
-        }
-
-        .service-card {
-            background: #fff;
-            padding: 22px 24px;
-            border-left: 3px solid var(--warm-gold);
+            grid-template-columns: 64px minmax(0, 1fr);
+            gap: 24px;
+            padding: 28px 0;
             border-top: 1px solid var(--light-border);
-            border-right: 1px solid var(--light-border);
-            border-bottom: 1px solid var(--light-border);
-            box-shadow: 0 2px 16px rgba(0,0,0,0.04);
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-            position: relative;
         }
 
-        .service-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            background: #fffdf9;
-        }
+        .work-item:last-child { border-bottom: 1px solid var(--light-border); }
 
-        .service-number {
+        .work-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 300;
-            color: var(--light-border);
+            color: var(--warm-gold);
             line-height: 1;
-            margin-bottom: 10px;
         }
 
-        .service-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
+        .work-item h3 {
+            font-size: 1.35rem;
             font-weight: 600;
             color: var(--deep-navy);
-            margin-bottom: 10px;
-            -webkit-text-stroke: 0;
-            filter: none;
+            margin-bottom: 8px;
+            line-height: 1.25;
         }
 
-        .service-card p {
-            font-size: 0.88rem;
+        .work-item p {
+            font-size: 0.98rem;
             color: var(--text-secondary);
-            line-height: 1.65;
+            line-height: 1.75;
+            max-width: 820px;
         }
 
         .service-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 18px;
+            margin-top: 14px;
         }
 
         .service-tag {
@@ -420,104 +428,182 @@
             border-radius: 2px;
         }
 
-        /* ─── TEAM ─── */
-        #team {
-            background: var(--deep-navy);
+        /* ─── RECORD (publications, talks) ─── */
+        .work-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 56px;
+            align-items: start;
         }
 
-        #team .section-title {
-            color: #fff;
+        .record {
+            position: sticky;
+            top: 88px;
+            background: var(--cream);
+            border-left: 3px solid var(--warm-gold);
+            padding: 26px 26px 28px;
         }
 
-        #team .section-label {
-            color: var(--warm-gold);
-        }
-
-        .team-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: 20px 24px;
-            position: relative;
-        }
-
-        .team-header {
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            text-align: center;
-            width: 160px;
-        }
-
-        .team-avatar {
-            width: 130px;
-            height: 130px;
-            border: 2px solid rgba(201,162,39,0.4);
-            overflow: hidden;
-        }
-
-        .team-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .team-identity {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-        }
-
-        .team-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+        .record h3 {
+            font-size: 1.15rem;
             font-weight: 600;
-            color: var(--warm-gold);
-            margin: 0;
-            line-height: 1.2;
-            white-space: normal;
-        }
-
-        .team-card .team-title {
-            font-size: 0.8rem;
-            color: var(--soft-gold);
-            font-family: 'Source Sans 3', sans-serif;
-            font-weight: 400;
-            margin: 0;
-            line-height: 1.3;
-        }
-
-        .team-card .team-subtitle {
-            font-size: 0.76rem;
-            color: rgba(255,255,255,0.6);
-            font-family: 'Source Sans 3', sans-serif;
-            margin: 5px 0 0 0;
-            line-height: 1.45;
-        }
-
-        .team-info p {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.72);
-            line-height: 1.6;
+            color: var(--deep-navy);
             margin-bottom: 8px;
         }
+
+        .record ul { list-style: none; margin-bottom: 22px; }
+
+        .record li {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            padding: 8px 0;
+            border-top: 1px solid var(--light-border);
+        }
+
+        .record li em { color: var(--text-primary); }
+
+        .record a {
+            color: var(--deep-navy);
+            text-decoration: none;
+            border-bottom: 1px solid var(--warm-gold);
+        }
+
+        .record a:hover { color: var(--warm-gold); }
+
+        .record-more { font-size: 0.85rem; letter-spacing: 0.04em; }
+
+        /* ─── ENGAGE ─── */
+        #engage { background: var(--cream); }
+
+        .engage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .engage-card {
+            background: #fff;
+            padding: 32px 32px 36px;
+            border-left: 3px solid var(--warm-gold);
+            border-top: 1px solid var(--light-border);
+            border-right: 1px solid var(--light-border);
+            border-bottom: 1px solid var(--light-border);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .engage-kicker {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            margin-bottom: 8px;
+        }
+
+        .engage-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--deep-navy);
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .engage-card > p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .engage-card ul {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .engage-card li {
+            font-size: 0.93rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 7px 0 7px 20px;
+            position: relative;
+            border-top: 1px solid var(--light-border);
+        }
+
+        .engage-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15px;
+            width: 8px;
+            height: 2px;
+            background: var(--warm-gold);
+        }
+
+        .engage-card .btn-primary { align-self: flex-start; margin-top: auto; }
+
+        /* ─── ABOUT ─── */
+        #about { background: var(--deep-navy); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            gap: 72px;
+            align-items: start;
+        }
+
+        .about-text p {
+            font-size: 1.02rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.85;
+            margin-bottom: 18px;
+        }
+
+        .about-text a {
+            color: var(--soft-gold);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(201,162,39,0.4);
+        }
+
+        .about-text a:hover { color: var(--warm-gold); border-color: var(--warm-gold); }
+
+        .about-side h4 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--warm-gold);
+            margin-bottom: 12px;
+        }
+
+        .about-side ul {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .about-side li {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.72);
+            line-height: 1.55;
+            padding: 8px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .about-side li em { color: rgba(255,255,255,0.9); }
+
+        .about-side li a { color: var(--soft-gold); text-decoration: none; border-bottom: 1px solid rgba(201,162,39,0.4); }
 
         .team-keywords {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-bottom: 14px;
         }
 
         .team-keyword {
             background: rgba(255,255,255,0.07);
             border: 1px solid rgba(255,255,255,0.1);
             padding: 4px 13px;
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.7);
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.75);
             border-radius: 2px;
         }
 
@@ -533,6 +619,7 @@
             letter-spacing: 0.08em;
             text-decoration: none;
             transition: background 0.2s, color 0.2s;
+            margin-top: 8px;
         }
 
         .btn-cv:hover {
@@ -541,19 +628,17 @@
         }
 
         /* ─── CONTACT ─── */
-        #contact {
-            background: #fff;
-        }
+        #contact { background: #fff; }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 80px;
             align-items: start;
         }
 
-        .contact-info p {
-            font-size: 0.95rem;
+        .contact-info > p {
+            font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.8;
             margin-bottom: 32px;
@@ -577,12 +662,14 @@
             letter-spacing: 0.1em;
             color: var(--warm-gold);
             font-weight: 600;
-            min-width: 70px;
+            min-width: 86px;
+            flex-shrink: 0;
         }
 
         .contact-row .value {
             font-size: 0.95rem;
             color: var(--text-primary);
+            overflow-wrap: anywhere;
         }
 
         .contact-row a {
@@ -604,17 +691,17 @@
         }
 
         .contact-note h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 600;
             color: var(--deep-navy);
             margin-bottom: 14px;
         }
 
         .contact-note p {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: var(--text-secondary);
             line-height: 1.75;
+            margin-bottom: 22px;
         }
 
         /* ─── FOOTER ─── */
@@ -645,17 +732,35 @@
 
         /* ─── RESPONSIVE ─── */
         @media (max-width: 900px) {
-            .nav-inner { padding: 0 24px; }
-            .hero-inner { padding: 0 24px; }
+            .nav-inner { padding: 0 20px; }
+            .nav-links { gap: 18px; }
+            .nav-links .nav-section { display: none; }
+            .hero-inner { padding: 48px 24px 40px; grid-template-columns: 1fr; gap: 28px; }
+            .hero-portrait { order: -1; justify-self: start; width: 112px; height: 112px; }
+            .proof-inner { padding: 24px 24px 32px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
             .section-wrap { padding: 60px 24px; }
+            .engage-grid,
             .about-grid,
             .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-            .services-grid { grid-template-columns: 1fr; }
-            .team-card { flex-direction: column !important; align-items: center !important; }
-            .team-header { width: auto; }
-            .team-avatar { width: 110px; height: 110px; }
+            .work-item { grid-template-columns: 40px minmax(0, 1fr); gap: 14px; }
+            .work-layout { grid-template-columns: 1fr; gap: 40px; }
+            .record { position: static; padding: 22px 20px 24px; }
             footer { padding: 28px 24px; }
             .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-logo { font-size: 1.05rem; letter-spacing: 0.1em; gap: 8px; }
+            .nav-logo span { display: none; }
+            .nav-links .nav-cv { padding: 5px 12px; }
+            .proof-figure { font-size: 1.6rem; }
+            .hero-description { font-size: 1rem; line-height: 1.65; margin-bottom: 26px; }
+            .hero-availability { margin: -12px 0 24px; }
+            .hero-inner { padding-top: 32px; gap: 20px; }
+            .hero-portrait { width: 88px; height: 88px; }
+            .engage-card { padding: 26px 22px 28px; }
+            .contact-note { padding: 26px 22px; }
+            .contact-row { flex-direction: column; gap: 2px; }
         }
     </style>
 </head>
@@ -665,14 +770,14 @@
     <nav>
         <div class="nav-inner">
             <a href="#home" class="nav-logo">
-                <svg class="nav-logo-mark" width="32" height="28" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#c9a227" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><line x1="30" y1="160" x2="80" y2="35"/><line x1="80" y1="35" x2="130" y2="160"/><line x1="52" y1="108" x2="108" y2="108"/><line x1="130" y1="35" x2="130" y2="160"/><line x1="130" y1="35" x2="172" y2="35"/><line x1="130" y1="97" x2="164" y2="97"/><line x1="130" y1="160" x2="172" y2="160"/></g></svg>
+                <svg class="nav-logo-mark" width="32" height="28" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="none" stroke="#c9a227" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><line x1="30" y1="160" x2="80" y2="35"/><line x1="80" y1="35" x2="130" y2="160"/><line x1="52" y1="108" x2="108" y2="108"/><line x1="130" y1="35" x2="130" y2="160"/><line x1="130" y1="35" x2="172" y2="35"/><line x1="130" y1="97" x2="164" y2="97"/><line x1="130" y1="160" x2="172" y2="160"/></g></svg>
                 ANALOGIA ENTIS
-                <span>Consulting</span>
+                <span>Hugolin Bergier</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#team">Team</a></li>
+                <li class="nav-section"><a href="#work">Work</a></li>
+                <li class="nav-section"><a href="#engage">Engage</a></li>
+                <li class="nav-section"><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="cv.html" class="nav-cv">CV</a></li>
             </ul>
@@ -682,18 +787,175 @@
     <!-- HERO -->
     <section id="home">
         <div class="hero-inner">
-            <p class="hero-label">Independent Consulting Practice</p>
-            <h1 class="hero-title">
-                Reason, Language,<br>
-                and <em>Intelligence</em>
-            </h1>
-            <p class="hero-tagline">At the intersection of formal logic, philosophy, and artificial intelligence</p>
-            <p class="hero-description">
-                Analogia Entis brings rigorous philosophical and formal expertise to the most pressing questions surrounding AI — its foundations, its limits, and its human implications. We help organizations think clearly, act wisely, and build responsibly.
-            </p>
-            <div class="hero-cta">
-                <a href="#services" class="btn-primary">Our Services</a>
-                <a href="#contact" class="btn-outline">Get in Touch</a>
+            <div>
+                <p class="hero-label">Research scientist · Consultant</p>
+                <h1 class="hero-title">Hugolin Bergier</h1>
+                <p class="hero-role">Logic-based AI for program understanding</p>
+                <p class="hero-description">
+                    When AI explains software, its statements about the code should be verifiable. As Research Scientist at Phase Change Software since 2017, I lead the design of a formal ontology of program semantics, designed the derivation logic that reasons over it, and am now connecting that layer to LLM agents. Through Analogia Entis, my independent practice, I consult on formal ontologies and knowledge graphs, hybrid symbolic and LLM architecture, and verification in Lean 4.
+                </p>
+                <p class="hero-availability">Open to research-scientist roles · Remote, US and EU time zones · <a href="mailto:contact@analogia-entis.com">contact@analogia-entis.com</a></p>
+                <div class="hero-cta">
+                    <a href="#engage" class="btn-primary">Work with me</a>
+                    <a href="cv.html" class="btn-outline">Read the CV</a>
+                </div>
+            </div>
+            <div class="hero-portrait"><img src="headshot.jpeg" alt="Portrait of Hugolin Bergier" width="200" height="200"></div>
+        </div>
+        <div class="proof-strip">
+            <div class="proof-inner">
+                <div>
+                    <div class="proof-figure">3,182</div>
+                    <div class="proof-caption">COBOL modules and 3,332 copybooks of a Fortune 100 insurer, ingested into one knowledge graph</div>
+                </div>
+                <div>
+                    <div class="proof-figure">Lean 4</div>
+                    <div class="proof-caption">machine-verified counterexamples that identified soundness issues across two revisions of a client's framework</div>
+                </div>
+                <div>
+                    <div class="proof-figure">US + EP</div>
+                    <div class="proof-caption">granted patent family (three grants) on machine-based instruction editing</div>
+                </div>
+                <div>
+                    <div class="proof-figure">PhD</div>
+                    <div class="proof-caption">mathematics and formal logic, Sorbonne; Visiting Professor of Computer Science, Regis University (2026 to 2027)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+        <div class="section-wrap">
+            <p class="section-label">Selected Work</p>
+            <h2 class="section-title">Industrial and Consulting Work</h2>
+            <div class="section-divider"></div>
+            <p class="section-intro">Items 01 to 04 and 06 are my work at Phase Change Software on a deterministic code-understanding platform. Item 05 was a consulting engagement through Analogia Entis.</p>
+            <div class="work-layout">
+            <div class="work-list">
+
+                <div class="work-item">
+                    <div class="work-number">01</div>
+                    <div>
+                        <h3>A formal ontology of program semantics</h3>
+                        <p>Lead designer of the platform's formal ontology for program semantics: 19 entity types and 19 relation types, organized in four layers (computational, context, business, and bridge).</p>
+                        <div class="service-tags"><span class="service-tag">Ontology engineering</span><span class="service-tag">Knowledge representation</span><span class="service-tag">Program semantics</span></div>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-number">02</div>
+                    <div>
+                        <h3>Applied to a Fortune 100 COBOL estate</h3>
+                        <p>The ontology was applied to the COBOL estate of a Fortune 100 US insurer: 3,182 modules and 3,332 copybooks ingested into a knowledge graph supporting structural and semantic queries.</p>
+                        <div class="service-tags"><span class="service-tag">COBOL</span><span class="service-tag">Knowledge graphs</span></div>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-number">03</div>
+                    <div>
+                        <h3>Derivation logic over the graph, portable to SQL</h3>
+                        <p>I designed schema-level derivation logic, written as TypeQL functions over TypeDB, that computes functional classifications and aggregations of program structure from the schema. The derivation logic has been shown portable across a graph database and a SQL engine, which decouples the ontology from any single store.</p>
+                        <div class="service-tags"><span class="service-tag">TypeDB / TypeQL</span><span class="service-tag">Automated reasoning</span><span class="service-tag">SQL</span></div>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-number">04</div>
+                    <div>
+                        <h3>Patent family on machine-based instruction editing</h3>
+                        <p>Co-inventor on the granted patent family <em>Inductive Equivalence in Machine-Based Instruction Editing</em>: US 11,157,250 B2 (2021), US 11,720,334 B2 (2023), and EP 17825321.7 (2025).</p>
+                        <div class="service-tags"><span class="service-tag">Program analysis</span><span class="service-tag">Patents</span></div>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-number">05</div>
+                    <div>
+                        <h3>Machine-checked review of a complexity-theory framework</h3>
+                        <p>For a consulting client, a full formalization in Lean 4 (with Mathlib) of a novel complexity-theory framework. The machine-verified counterexamples identified soundness issues across two major revisions of the paper.</p>
+                        <div class="service-tags"><span class="service-tag">Lean 4</span><span class="service-tag">Mathlib</span><span class="service-tag">Formal verification</span></div>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-number">06</div>
+                    <div>
+                        <h3>Connecting the symbolic layer to LLM agents</h3>
+                        <p>Research prototypes and reasoning engines in Prolog, Haskell, and Clojure. Current work integrates the symbolic layer with LLM-based agents, using Claude Code, MCP servers, and multi-agent harnesses.</p>
+                        <div class="service-tags"><span class="service-tag">Neurosymbolic AI</span><span class="service-tag">MCP</span><span class="service-tag">Prolog</span><span class="service-tag">Haskell</span></div>
+                    </div>
+                </div>
+
+            </div>
+            <aside class="record" aria-label="Publications and talks">
+                <h3>Publications</h3>
+                <ul>
+                    <li>“Tokens Are Not Symbols: Why Large Language Models Lack Rationality.” <em>Human and Artificial Rationalities (HAR 2026)</em>, Lecture Notes in Computer Science, Springer. In press; presented in Paris, September 2026.</li>
+                    <li>Eabrasu, Bauman, Bergier, and Murtinu. “Agency in the Loop: The AI Revolution and the Philosophy of Management.” <em>Philosophy of Management</em>, Springer, 2026. <a href="https://doi.org/10.1007/s40926-026-00409-y">DOI</a></li>
+                    <li>“Can Formal Logic Make Pure Chance Intelligible? Ladrière on the Eschatological Horizon of Reason.” <em>Logica Universalis</em>, Springer Nature, 2025. <a href="https://doi.org/10.1007/s11787-025-00368-4">DOI</a></li>
+                    <li>“An Intensional Formalization of Generic Statements.” <em>Logica Universalis</em>, Springer Nature, 2023. <a href="https://doi.org/10.1007/s11787-023-00323-1">DOI</a></li>
+                    <li>“How Combinatory Logic Can Limit Computing Complexity.” <em>EPJ Web of Conferences</em> 244, 2020. <a href="https://doi.org/10.1051/epjconf/202024401009">DOI</a></li>
+                    <li>Pandita, Bucuvalas, Bergier, Chakarov, and Richards. “Towards J.A.R.V.I.S. for Software Engineering.” <em>AAAI Workshops</em>, 2018.</li>
+                    <li>“Formal Logic as a Liberal Art.” In <em>Logic in All Its Dimensions: Festschrift for Jean-Yves Béziau’s 60th Birthday</em>, Vol. 1, Birkhäuser. In press.</li>
+                </ul>
+                <h3>Selected conferences and talks</h3>
+                <ul>
+                    <li>“Verisimilitudo blandiens: Flattering Plausibility and the Epistemic Conditions of Peace.” AI4Peace 2026 International Symposium, Pontifical Lateran University, Rome, September 2026.</li>
+                    <li>“What Does It Mean for AI to Understand Code?” <em>Logic in Question</em> (LIQ 2026), Sorbonne, Paris, May 2026.</li>
+                    <li>“AI as Mere Mimicry: Why Artificial Intelligence Lacks Ethical Agency?” Computer Ethics: Philosophical Enquiries (CEPE 2025), Rome, September 2025.</li>
+                    <li>1st World Congress on Logic, Chance and Money, University of Nevada, Las Vegas, November 2024.</li>
+                    <li>“InterPARES Trust AI project: Can we leverage AI for RiC-O?” International study day on Records in Contexts, Archives nationales de France, Paris, November 2023.</li>
+                    <li>“Can we combine logical analysis and machine learning? A NLP use case.” Datacraft Workshops, Paris, July 2022.</li>
+                </ul>
+                <h3>Editorial</h3>
+                <ul>
+                    <li>Co-editor, special issue <em>The AI Revolution: Perspectives from Philosophy of Management</em>, <em>Philosophy of Management</em> (Springer), 2026.</li>
+                </ul>
+                <a href="cv.html" class="record-more">All publications and talks in the CV →</a>
+            </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENGAGE -->
+    <section id="engage">
+        <div class="section-wrap">
+            <p class="section-label">Work With Me</p>
+            <h2 class="section-title">Hiring or Consulting</h2>
+            <div class="section-divider"></div>
+            <div class="engage-grid">
+
+                <div class="engage-card">
+                    <p class="engage-kicker">For teams hiring</p>
+                    <h3>Research and applied-science roles</h3>
+                    <p>I am open to senior research-scientist and applied-scientist positions in AI for code, knowledge representation, and formal methods.</p>
+                    <ul>
+                        <li>AI for code: program understanding and analysis</li>
+                        <li>Knowledge representation and formal ontologies</li>
+                        <li>Neurosymbolic systems combining LLMs with reasoning</li>
+                        <li>Formal verification and theorem proving</li>
+                    </ul>
+                    <p>Remote across US and EU time zones; dual US and French citizen.</p>
+                    <a href="mailto:contact@analogia-entis.com?subject=Role%20enquiry" class="btn-primary">Discuss a role</a>
+                </div>
+
+                <div class="engage-card">
+                    <p class="engage-kicker">For projects</p>
+                    <h3>Consulting through Analogia Entis</h3>
+                    <p>Analogia Entis is my independent practice, based in France. An engagement can be a single review, a scoped piece of work, or an ongoing advisory role.</p>
+                    <ul>
+                        <li>Design or audit of a formal ontology or knowledge graph</li>
+                        <li>Architecture review of hybrid symbolic and LLM systems</li>
+                        <li>Formalization and verification of algorithms and proofs in Lean 4</li>
+                        <li>Expert assessment of the reasoning capabilities and limits of an AI system</li>
+                        <li>Research collaboration and technical writing</li>
+                    </ul>
+                    <p>This practice is separate from my work at Phase Change Software and does not take on legacy-code modernization.</p>
+                    <a href="mailto:contact@analogia-entis.com?subject=Consulting%20enquiry" class="btn-primary">Discuss a project</a>
+                </div>
+
             </div>
         </div>
     </section>
@@ -701,118 +963,28 @@
     <!-- ABOUT -->
     <section id="about">
         <div class="section-wrap">
-            <p class="section-label">About Us</p>
-            <h2 class="section-title" style="font-style:italic; font-weight:300; letter-spacing:0.01em;">Grounded in Rigor.<br>Applied to Reality.</h2>
+            <p class="section-label">About</p>
+            <h2 class="section-title section-title-light">Logician and Computer Scientist</h2>
             <div class="section-divider"></div>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>Analogia Entis is an independent consulting practice specializing in the philosophical and formal foundations of artificial intelligence. The firm draws on deep expertise in formal logic, philosophy of science, and knowledge representation to help organizations navigate the conceptual and technical challenges posed by modern AI.</p>
-                    <p>Founded by Hugolin Bergier — Associate Professor at Regis University and Research Scientist at Phase Change Software — the practice bridges two worlds rarely joined: the analytical precision of mathematical logic and the reflective depth of continental philosophy.</p>
-                    <p>The name <em>Analogia Entis</em> — the analogy of being — reflects our conviction that sound reasoning about intelligence, whether natural or artificial, requires attention to the deep structure of what it means to be, to represent, and to know.</p>
+                    <p>I hold a PhD in mathematics and formal logic from Université Paris-Sorbonne, with a dissertation on the logic of movement supervised by Jean-Pierre Desclés. I have been Research Scientist at Phase Change Software since 2017. At Regis University in Denver I was a tenured associate professor, department chair, and director of the BS in Computer Science until 2026, and I am now Visiting Professor of Computer Science there for 2026 to 2027. My courses covered computation theory (automata, recursive functions, λ-calculus, complexity), principles of programming languages, and AI ethics.</p>
+                    <p>My research is in formal logic (intensional logic, combinatory logic, the λ-calculus) and in what a reasoning system can legitimately claim to know, including the rationality of large language models. Earlier, I worked as a management and strategy consultant at BearingPoint in Paris, and as a research intern in computational linguistics with Thales Group and the Université du Québec.</p>
+                    <a href="cv.html" class="btn-cv">Full curriculum vitae →</a>
                 </div>
-                <div class="about-pillars">
-                    <div class="pillar">
-                        <h4>Philosophical Depth</h4>
-                        <p>We bring the full resources of analytic and continental philosophy to bear on technology questions — moving beyond surface-level ethics to address the conceptual foundations that shape AI design and governance.</p>
-                    </div>
-                    <div class="pillar">
-                        <h4>Formal Rigor</h4>
-                        <p>Our work is grounded in formal logic, λ-calculus, type theory, and ontology engineering — providing mathematically precise frameworks where others offer vague intuitions.</p>
-                    </div>
-                    <div class="pillar">
-                        <h4>Practical Focus</h4>
-                        <p>From research publications and granted patents to curriculum design and executive advising, we translate theoretical insights into concrete deliverables and actionable guidance.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services">
-        <div class="section-wrap">
-            <p class="section-label">What We Do</p>
-            <h2 class="section-title">Areas of Practice</h2>
-            <div class="section-divider"></div>
-            <div class="services-grid">
-
-                <div class="service-card">
-                    <div class="service-number">01</div>
-                    <h3>Symbolic AI &amp; Formal Verification</h3>
-                    <p>We design and evaluate formally grounded AI architectures: symbolic reasoning systems, logic-based program analysis, and hybrid symbolic-LLM approaches. We also provide formal verification consulting using theorem provers such as Lean 4, with a focus on correctness, verifiability, and mathematical rigor.</p>
-                    <div class="service-tags">
-                        <span class="service-tag">Symbolic AI</span>
-                        <span class="service-tag">Formal Verification</span>
-                        <span class="service-tag">Lean 4</span>
-                        <span class="service-tag">Combinatory Logic</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-number">02</div>
-                    <h3>Formal Ontologies &amp; Knowledge Representation</h3>
-                    <p>We build and audit formal ontologies for enterprise knowledge systems, archival management, and semantic AI. Our work applies intensional semantics and formal mereology to produce robust conceptual models that scale.</p>
-                    <div class="service-tags">
-                        <span class="service-tag">Ontology Engineering</span>
-                        <span class="service-tag">Knowledge Graphs</span>
-                        <span class="service-tag">Formal Semantics</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-number">03</div>
-                    <h3>AI Ethics &amp; Governance</h3>
-                    <p>We provide philosophical analysis and strategic counsel on AI ethics, agency, and governance — going beyond compliance checklists to engage the fundamental questions about what AI systems can and cannot do, and what we should require of them.</p>
-                    <div class="service-tags">
-                        <span class="service-tag">AI Ethics</span>
-                        <span class="service-tag">Responsible AI</span>
-                        <span class="service-tag">Policy Advisory</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-number">04</div>
-                    <h3>Research, Teaching &amp; Expert Analysis</h3>
-                    <p>We contribute original research, co-author publications, and design rigorous curricula on logic, computation, philosophy of science, and AI. We also provide expert analysis and testimony for complex technology questions requiring philosophical and formal expertise.</p>
-                    <div class="service-tags">
-                        <span class="service-tag">Academic Research</span>
-                        <span class="service-tag">Curriculum Design</span>
-                        <span class="service-tag">Expert Witness</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- TEAM -->
-    <section id="team">
-        <div class="section-wrap" style="padding-top:60px;padding-bottom:60px;">
-            <p class="section-label">The Practice</p>
-            <h2 class="section-title section-title-light">Who We Are</h2>
-            <div class="section-divider"></div>
-            <div class="team-card" style="display: flex; gap: 32px; align-items: flex-start;">
-                <div class="team-header">
-                    <div class="team-avatar"><img src="headshot.jpeg" alt="Hugolin Bergier"></div>
-                    <div class="team-identity">
-                        <h3>Hugolin BERGIER</h3>
-                        <p class="team-title">Founder &amp; Principal Consultant</p>
-                        <p class="team-subtitle">Associate Professor · Research Scientist<br>Philosopher of Logic &amp; AI</p>
-                    </div>
-                </div>
-                <div class="team-info">
-                    <p>Hugolin Bergier holds a PhD from Université Paris-Sorbonne and a Master Recherche from Sciences Po Paris. He has held positions at the University of Chicago and Regis University (Denver), where he is currently Associate Professor of Computer Science and Program Director. He also teaches at UCO Angers and holds affiliate research appointments at the Institut Catholique de Paris and Université Paris-Sorbonne.</p>
-                    <p>As Research Scientist at Phase Change Software, he has developed logic-based AI tools for program understanding, resulting in three granted patents (US, Europe) and publications in computer science, logic, and philosophy. His philosophical work spans formal logic, philosophy and foundations of Computer Science, and the ethics of artificial agency.</p>
+                <div class="about-side">
+                    <h4>Toolbox</h4>
                     <div class="team-keywords">
-                        <span class="team-keyword">Formal Logic</span>
-                        <span class="team-keyword">λ-calculus</span>
-                        <span class="team-keyword">Symbolic AI</span>
-                        <span class="team-keyword">Formal Verification</span>
-                        <span class="team-keyword">Philosophy of AI</span>
-                        <span class="team-keyword">Ontology</span>
-                        <span class="team-keyword">AI Ethics</span>
+                        <span class="team-keyword">TypeDB / TypeQL</span>
+                        <span class="team-keyword">OWL 2 · RDF · SKOS</span>
+                        <span class="team-keyword">Prolog</span>
+                        <span class="team-keyword">Lean 4 · Mathlib</span>
+                        <span class="team-keyword">Z3</span>
+                        <span class="team-keyword">Haskell</span>
+                        <span class="team-keyword">Clojure</span>
+                        <span class="team-keyword">Python</span>
+                        <span class="team-keyword">Claude Code · MCP</span>
                     </div>
-                    <a href="cv.html" class="btn-cv">View Full Curriculum Vitae →</a>
                 </div>
             </div>
         </div>
@@ -826,29 +998,34 @@
             <div class="section-divider"></div>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <p>We welcome inquiries from organizations, academic institutions, and individuals seeking expert guidance at the intersection of philosophy, formal logic, and artificial intelligence. Engagements range from single consultations to extended advisory relationships.</p>
+                    <p>Email is the quickest way to reach me.</p>
                     <div class="contact-details">
-                        <div class="contact-row">
-                            <span class="label">Location</span>
-                            <span class="value">Angers, France &amp; Denver, USA</span>
-                        </div>
                         <div class="contact-row">
                             <span class="label">Email</span>
                             <span class="value"><a href="mailto:contact@analogia-entis.com">contact@analogia-entis.com</a></span>
                         </div>
                         <div class="contact-row">
                             <span class="label">Phone</span>
-                            <span class="value">+33 7 49 12 09 41</span>
+                            <span class="value"><a href="tel:+33749120941">+33 7 49 12 09 41</a></span>
+                        </div>
+                        <div class="contact-row">
+                            <span class="label">Based in</span>
+                            <span class="value">Angers, France (CET)</span>
                         </div>
                         <div class="contact-row">
                             <span class="label">Languages</span>
                             <span class="value">English · French</span>
                         </div>
+                        <div class="contact-row">
+                            <span class="label">ORCID</span>
+                            <span class="value"><a href="https://orcid.org/0000-0001-8528-2657">0000-0001-8528-2657</a></span>
+                        </div>
                     </div>
                 </div>
                 <div class="contact-note">
-                    <h4>Areas Open for Engagement</h4>
-                    <p>Current areas of consulting availability include: formal verification and theorem proving (Lean 4), symbolic AI system design and review, formal ontology development, AI governance and ethics advisory, philosophy of technology analysis, expert testimony and academic co-authorship, and curriculum development for graduate and executive education programs.</p>
+                    <h4>Useful to include</h4>
+                    <p>For a role: the team, the problem it works on, and whether the position is remote. For a project: the system concerned, the question you need answered about it, and your timeline.</p>
+                    <a href="mailto:contact@analogia-entis.com" class="btn-primary">Email me</a>
                 </div>
             </div>
         </div>
@@ -857,8 +1034,8 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-inner">
-            <div class="footer-logo"><svg width="24" height="21" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#c9a227" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><line x1="30" y1="160" x2="80" y2="35"/><line x1="80" y1="35" x2="130" y2="160"/><line x1="52" y1="108" x2="108" y2="108"/><line x1="130" y1="35" x2="130" y2="160"/><line x1="130" y1="35" x2="172" y2="35"/><line x1="130" y1="97" x2="164" y2="97"/><line x1="130" y1="160" x2="172" y2="160"/></g></svg> ANALOGIA ENTIS</div>
-            <div class="footer-copy">&copy; 2026 Analogia Entis Consulting. All rights reserved.</div>
+            <div class="footer-logo"><svg width="24" height="21" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="none" stroke="#c9a227" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><line x1="30" y1="160" x2="80" y2="35"/><line x1="80" y1="35" x2="130" y2="160"/><line x1="52" y1="108" x2="108" y2="108"/><line x1="130" y1="35" x2="130" y2="160"/><line x1="130" y1="35" x2="172" y2="35"/><line x1="130" y1="97" x2="164" y2="97"/><line x1="130" y1="160" x2="172" y2="160"/></g></svg> ANALOGIA ENTIS</div>
+            <div class="footer-copy">&copy; 2026 Hugolin Bergier · Analogia Entis</div>
         </div>
     </footer>
 
